@@ -3,4 +3,20 @@
 <h1>Drink details check</h1>
 
 
+    
+    <output value="drink">Drink: <%=drink.drink%></output>
+    
+    <output value="prepTime">Prep time: <%=drink.prepTime%></output>
+    
+</form>
+<br>
+<form action="/drinks/<%=drink._id%>?_method=PUT" method="POST">
+    <a>Drink: </a>
+    <input type="text" value="<%=drink.name%>" name="drink" placeholder="Drink Name"><br>
+    <a>Prep time: </a>
+    <input type="number" name="prepTime" required max="99" min="1" maxlength="2" class="input"><br>
+    <button type="submit">Update drink</button>
+</form>
+<a href="/drinks">Back to Index</a>
+
 <%- include('../partials/footer.ejs') %>

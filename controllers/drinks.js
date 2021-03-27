@@ -9,8 +9,19 @@ module.exports = {
     update
 };
 
+// function update(req, res) {
+//     Drink.findByIdAndUpdate(req.params.id, err => {
+//         res.redirect('/drinks')
+//     })
+// }
+
 function update(req, res) {
-    
+    // console.log('before:', req.body.tasty)
+    // req.body.tasty = !!req.body.tasty
+    console.log('after:', req.body.tasty)
+    Drink.findByIdAndUpdate(req.params.id, req.body, { new: true }, function (err) {
+        res.redirect('/drinks')
+    });
 }
 
 function delDrink(req, res, next) {

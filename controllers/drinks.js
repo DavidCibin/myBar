@@ -1,10 +1,45 @@
-const Drink = require("../models/user");
+const Drink = require("../models/drink");
 
 module.exports = {
     index,
     new: newDrink,
-
+    create,
 };
+
+function create(req, res) {
+    const drink = new Drink(req.body);
+    drink.save( function (err) {
+        if (err) {
+            console.log(err);
+            return res.render('drinks/new', { title: 'Add Drink' })
+        }
+        console.log(drink)
+        res.redirect('/drinks')
+    })
+}
+
+// function create(req, res){
+//     req.body.postedBy = req.user._id
+//     Drink.create(req.body)
+//     .then((drinks)=>{
+//         res.redirect(`/drinks/${cocktail._id}`)
+//     })
+// }
+
+
+// function create(req, res) {
+//     const flight = new Flight(req.body);
+//     flight.save(function (err) {
+//       if (err) {
+//         console.log(err)
+//         return res.render('flights/new', {
+//           title: "Add Flight"
+//         })
+//       }
+//       console.log(flight)
+//       res.redirect('/flights');
+//     })
+//   }
 
 function newDrink(req, res) {
     // console.log('user', user);
@@ -24,7 +59,7 @@ function newDrink(req, res) {
 // }
 
 function index(req, res) {
-    Drink.find({ postedBy: req.user._id })
+    Drink.find({ /*postedBy: req.user._id*/ })
         .then((drinks) => {
             console.log(drinks);
             res.render("drinks/index", {

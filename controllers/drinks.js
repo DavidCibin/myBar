@@ -4,7 +4,43 @@ module.exports = {
     index,
     new: newDrink,
     create,
+    show,
 };
+
+// function show(req, res) {
+//     Taco.findById(req.params.id, (err, taco) => {
+//         res.render('tacos/show', {
+//             title: 'Taco Details',
+//             taco
+//         })
+//     })
+// }
+
+function show(req, res) {
+    Drink.findById(req.params._id)
+    .then((drink) => {
+        console.log(req.params._id);
+        console.log(req.params.id);
+        res.render('drinks/show', {
+            user: req.user,
+            title: 'Drink details',
+            drink
+        })
+    })
+    .catch(err => console.log(err))
+}
+
+// function index(req, res) {
+//     Drink.find({ /*postedBy: req.user._id*/ })
+//         .then((drinks) => {
+//             console.log(drinks);
+//             res.render("drinks/index", {
+//                 title: "All Drinks",
+//                 user: req.user,
+//                 drinks
+//             })
+//         })
+// }
 
 function create(req, res) {
     const drink = new Drink(req.body);
@@ -14,7 +50,8 @@ function create(req, res) {
             return res.render('drinks/new', { title: 'Add Drink' })
         }
         console.log(drink)
-        res.redirect('/drinks')
+        res.redirect(`/drinks/${drink._id}`)
+        // res.redirect('/drinks')
     })
 }
 
@@ -22,7 +59,7 @@ function create(req, res) {
 //     req.body.postedBy = req.user._id
 //     Drink.create(req.body)
 //     .then((drinks)=>{
-//         res.redirect(`/drinks/${cocktail._id}`)
+//         res.redirect(`/drinks/${drink._id}`)
 //     })
 // }
 

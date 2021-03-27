@@ -1,0 +1,13 @@
+<%- include('../partials/header') %>
+    
+<h1>New drink check</h1>
+
+
+
+<form action="/drinks" method="POST">
+    <p>Drink:</p>
+    <input type="text" name="drink" required class="input">
+    <input type="submit" value="Add Drink">
+</form>
+
+<%- include('../partials/footer.ejs') %>

@@ -7,10 +7,10 @@ const userSchema = new Schema(
     email: String,
     avatar: String,
     googleId: String,
-  },
-  {
-    timestamps: true,
-  }
-);
+  }, {
+  drinks: [{ type: Schema.Types.ObjectId, ref: 'Drink' }]
+}, {
+  timestamps: true
+});
 
 module.exports = mongoose.model("User", userSchema);

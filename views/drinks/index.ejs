@@ -1,7 +1,17 @@
 <%- include('../partials/header') %>
     
 <h1>All drinks check</h1>
-<a href="/drinks/new">Add drink</a>
+<a href="/drinks/new">Add drink</a><br>
+
+<% drinks.forEach(d => { %>
+    
+    <form action="/drinks/<%= d._id %>?_method=DELETE" method="POST">
+        <button type="submit">X</button>
+    </form>
+    <a href="/drinks/<%= d._id %>">Drink: <%= d.drink %> </a>
+    
+
+<% }) %>
 
 
 <%- include('../partials/footer') %>

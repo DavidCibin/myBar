@@ -5,22 +5,23 @@ module.exports = {
     new: newDrink,
     create,
     show,
+    delete: delDrink,
+    update
 };
 
-// function show(req, res) {
-//     Taco.findById(req.params.id, (err, taco) => {
-//         res.render('tacos/show', {
-//             title: 'Taco Details',
-//             taco
-//         })
-//     })
-// }
+function update(req, res) {
+    
+}
+
+function delDrink(req, res, next) {
+    Drink.findByIdAndDelete(req.params.id, err => {
+        res.redirect('/drinks')
+    })
+}
 
 function show(req, res) {
-    Drink.findById(req.params._id)
+    Drink.findById(req.params.id)
     .then((drink) => {
-        console.log(req.params._id);
-        console.log(req.params.id);
         res.render('drinks/show', {
             user: req.user,
             title: 'Drink details',

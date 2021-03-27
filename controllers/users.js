@@ -2,11 +2,11 @@ const User = require("../models/user");
 
 module.exports = {
     index,
-    showProfile,
+    // showProfile,
 };
 
 function showProfile(req, res) {
-    
+
 }
 
 function index(req, res) {

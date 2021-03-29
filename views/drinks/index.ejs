@@ -3,7 +3,22 @@
 <h1>All drinks check</h1>
 <a href="/drinks/new">Add drink</a><br>
 
+<div class="drinks-container">
+    <% drinks.forEach(d => { %>
+        <div class="card bg-dark text-white" id="card-div" style="width: 20rem;">
+            <img src="<%= d.imageUrl %>" class="card-img" alt="<%= d.drink %>">
+            <div class="card-img-overlay" id="card-content">
+                <h5 class="card-title"><%= d.drink %></h5>
+                <a href="/drinks/<%= d._id %>" id="details-btn" class="btn btn-primary">Details</a>
+            </div>
+        </div>
+    <% }) %>
+</div>
+<!-- 
+
 <% drinks.forEach(d => { %>
+    
+    <img src="<%= d.imageUrl %>">
     
     <form action="/drinks/<%= d._id %>?_method=DELETE" method="POST">
         <button type="submit">X</button>
@@ -11,7 +26,7 @@
     <a href="/drinks/<%= d._id %>">Drink: <%= d.drink %> </a>
     
 
-<% }) %>
+<% }) %> -->
 
 
 <%- include('../partials/footer') %>

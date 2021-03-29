@@ -1,13 +1,54 @@
 const User = require("../models/user");
+const Drink = require("../models/drink");
 
 module.exports = {
     index,
-    // showProfile,
+    showMyBooze,
 };
 
-function showProfile(req, res) {
+// function showMyBooze(req, res) {
+//     User.findById(req.params._id)
+//     res.render('users/mybooze', {
+//         console.log()
+//         user: req.user, 
+//         title: 'My Booze'
+//     })
+// }
 
+
+
+
+
+
+
+
+
+function showMyBooze(req, res) {
+    User.findById(req.user._id)
+        .then((user) => {
+            console.log(user.name)
+            console.log(user.avatar)
+            res.render("users/mybooze", {
+                user: req.user,
+                title: "Profile Page"
+            });
+        });
 }
+
+// function showMyBooze(req, res) {
+//     User.findById(req.params.id)
+//     .then((userInfo) => {
+//       Game.find({ collectedBy: userInfo._id })
+//       .then((games) => {
+//         res.render('users/show', {
+//           title: 'User Details',
+//           userInfo,
+//           user: req.user,
+//           games
+//         })
+//       })
+//     })
+//   }
 
 function index(req, res) {
     User.find({}).then((users) => {

@@ -11,6 +11,8 @@ router.post("/", drinksCtrl.create)
 router.get("/:id", drinksCtrl.show)
 router.delete('/:id', drinksCtrl.delete);
 router.put('/:id', drinksCtrl.update)
+router.get('/search', drinksCtrl.search)
+router.post("/:id", drinksCtrl.createReview)
 
 
 // router.get("/:slug", isLoggedIn, drinksCtrl.show)

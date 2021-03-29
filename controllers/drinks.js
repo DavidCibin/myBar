@@ -1,3 +1,4 @@
+const User = require("../models/user");
 const Drink = require("../models/drink");
 
 module.exports = {
@@ -6,20 +7,33 @@ module.exports = {
     create,
     show,
     delete: delDrink,
-    update
+    update,
+    search,
+    createReview,
+
 };
 
-// function update(req, res) {
-//     Drink.findByIdAndUpdate(req.params.id, err => {
-//         res.redirect('/drinks')
-//     })
-// }
+function createReview(req, res) {
+    Drink.findById(req.params.id)
+    .then((drink) => {
+        drink.reviews.push(req.body)
+        drink.save()
+      .then(()=> {
+        res.redirect(`/drinks/${drink._id}`)
+      })
+    })
+  }
+
+
+function search(req, res) {
+    res.render('drinks/search', {
+        title: 'Search Results',
+        user: req.user
+    })
+}
 
 function update(req, res) {
-    // console.log('before:', req.body.tasty)
-    // req.body.tasty = !!req.body.tasty
-    console.log('after:', req.body.tasty)
-    Drink.findByIdAndUpdate(req.params.id, req.body, { new: true }, function (err) {
+    Drink.findByIdAndUpdate(req.params.id, req.body, function (err) {
         res.redirect('/drinks')
     });
 }
@@ -56,12 +70,18 @@ function show(req, res) {
 
 function create(req, res) {
     const drink = new Drink(req.body);
+    req.body.postedBy = req.user.name
+    // drink.postedBy.push(req.user._id)
+    console.log('postedBy??', drink.postedBy)
     drink.save( function (err) {
         if (err) {
             console.log(err);
-            return res.render('drinks/new', { title: 'Add Drink' })
+            return res.render('drinks/new', { 
+                user: req.user,
+                title: 'Add Drink' })
         }
-        console.log(drink)
+        // console.log('user name?', userSchema)
+        console.log('user name?', user)
         res.redirect(`/drinks/${drink._id}`)
         // res.redirect('/drinks')
     })
@@ -110,7 +130,7 @@ function newDrink(req, res) {
 function index(req, res) {
     Drink.find({ /*postedBy: req.user._id*/ })
         .then((drinks) => {
-            console.log(drinks);
+            // console.log(drinks);
             res.render("drinks/index", {
                 title: "All Drinks",
                 user: req.user,

@@ -1,8 +1,8 @@
 const router = require("express").Router();
 const usersCtrl = require("../controllers/users");
 
-router.get("/users", isLoggedIn, usersCtrl.index);
-// router.get("/profile", isLoggedIn, usersCtrl.showProfile)
+router.get("/users", usersCtrl.index);
+router.get("/mybooze", usersCtrl.showMyBooze)
 // router.get("/getName", isLoggedIn, usersCtrl.getName)
 // router.get("/:id", isLoggedIn, usersCtrl.show)
 // router.get("/:id/friend", isLoggedIn, usersCtrl.addFriend)

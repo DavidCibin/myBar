@@ -2,14 +2,21 @@
     
 <h1>New drink check</h1>
 
-
-
-<form action="/drinks" method="POST">
-    <p>Drink:</p>
-    <input type="text" name="drink" required class="input">
-    <p>Prep time:</p>
-    <input type="number" name="prepTime" required class="input">
-    <input type="submit" value="Add Drink">
-</form>
-
-<%- include('../partials/footer.ejs') %>
+    <form action="/drinks" method="POST">
+        <p>Drink: <input type="text" name="drink" required class="input"></p>
+        <p>Prep time: <input type="number" name="prepTime" required class="input"></p>
+        <p>Servings: <input type="number" name="serving" required class="input"></p>
+        <p>Ingredients: <input type="text" name="ingredients" required class="input"></p>
+        <p>Instructions: <input type="text" name="instructions" required class="input"></p>
+        <p>Garnish: <input type="text" name="garnish" required class="input"></p>
+        <p>Alcohol: <input type="text" name="alcohol" required class="input"></p>
+        <p>Image URL: <input type="text" name="imageUrl" required class="input"></p>
+        <p>Image URL: <input type="text" name="videoUrl" class="input"></p>
+        <input type="text" name="postedBy" value="<%= user.name %>">
+    
+    
+        <input type="submit" value="Add Drink">
+    </form>
+    
+    <%- include('../partials/footer.ejs') %>
+    

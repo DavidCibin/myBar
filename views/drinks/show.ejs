@@ -12,11 +12,48 @@
 <br>
 <form action="/drinks/<%=drink._id%>?_method=PUT" method="POST">
     <a>Drink: </a>
-    <input type="text" value="<%=drink.name%>" name="drink" placeholder="Drink Name"><br>
+    <input type="text" name="drink" value="<%=drink.drink%>"><br>
     <a>Prep time: </a>
-    <input type="number" name="prepTime" required max="99" min="1" maxlength="2" class="input"><br>
+    <input type="number" name="prepTime" value="<%=drink.prepTime%>" required max="99" min="1" maxlength="2" class="input"><br>
     <button type="submit">Update drink</button>
 </form>
+
+
+
+<% if (drink.reviews.length) { %>
+
+    <% drink.reviews.forEach(r => { %>
+        
+    <a>Rate:</a>
+    <%= r.rating %><br>
+    <a>Review:</a>
+    <%= r.content %><br>
+
+    <% }) %>
+    
+
+<% } %>
+
+
+
+<form action="/drinks/<%=drink._id%>" method="POST">
+    <a>Rate(1-5): </a>
+    <select name="rating">
+        <option></option>
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+    </select>
+    <a>Leave a Review: </a>
+    <input type="text" name="content"><br>
+    <button type="submit">Post review</button>
+</form>
+
+
 <a href="/drinks">Back to Index</a>
 
 <%- include('../partials/footer.ejs') %>
+
+

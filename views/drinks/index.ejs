@@ -1,20 +1,25 @@
 <%- include('../partials/header') %>
-    
-<h1>All drinks check</h1>
-<a href="/drinks/new">Add drink</a><br>
 
-<div class="drinks-container">
-    <% drinks.forEach(d => { %>
-        <div class="card bg-dark text-white" id="card-div" style="width: 20rem;">
-            <img src="<%= d.imageUrl %>" class="card-img" alt="<%= d.drink %>">
-            <div class="card-img-overlay" id="card-content">
-                <h5 class="card-title"><%= d.drink %></h5>
-                <a href="/drinks/<%= d._id %>" id="details-btn" class="btn btn-primary">Details</a>
-            </div>
-        </div>
-    <% }) %>
-</div>
-<!-- 
+    <h1>All drinks check</h1>
+    <a href="/drinks/new">Add drink</a><br>
+
+    <div class="drinks-container">
+        <!-- <div class="row"> -->
+
+            <% drinks.forEach(d=> { %>
+                <div class="card bg-dark text-white" id="card-div">
+                    <img class="card-img" src="<%= d.imageUrl %>" alt="<%= d.drink %>">
+                    <div class="card-img-overlay" id="card-content">
+                        <h5 class="card-title"><%= d.drink %></h5>
+                        <a href="/drinks/<%= d._id %>" id="details-btn" class="btn btn-primary">Details</a>
+                    </div>
+                </div>
+            <% }) %>
+
+        <!-- </div> -->
+    </div>
+
+    <!-- 
 
 <% drinks.forEach(d => { %>
     
@@ -29,4 +34,4 @@
 <% }) %> -->
 
 
-<%- include('../partials/footer') %>
+    <%- include('../partials/footer') %>

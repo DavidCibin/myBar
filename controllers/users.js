@@ -15,19 +15,28 @@ module.exports = {
 //     })
 // }
 
-
-
-
-
-
-
-
+// function show(req, res) {
+//     Drink.findById(req.params.id)
+//     .then((drink) => {
+//         res.render('drinks/show', {
+//             user: req.user,
+//             title: 'Drink details',
+//             drink
+//         })
+//     })
+//     .catch(err => console.log(err))
+// }
 
 function showMyBooze(req, res) {
+    Drink.findById(req.params.id)
+   
     User.findById(req.user._id)
+    .populate("postedBy")
         .then((user) => {
-            console.log(user.name)
-            console.log(user.avatar)
+            // console.log(user.name)
+            console.log('user.drink??', user.drink)
+            // console.log('test 1', drink.drink)
+            // console.log('test 2', drink)
             res.render("users/mybooze", {
                 user: req.user,
                 title: "Profile Page"

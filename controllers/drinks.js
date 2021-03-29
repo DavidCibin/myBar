@@ -70,9 +70,6 @@ function show(req, res) {
 
 function create(req, res) {
     const drink = new Drink(req.body);
-    req.body.postedBy = req.user.name
-    // drink.postedBy.push(req.user._id)
-    console.log('postedBy??', drink.postedBy)
     drink.save( function (err) {
         if (err) {
             console.log(err);
@@ -80,8 +77,6 @@ function create(req, res) {
                 user: req.user,
                 title: 'Add Drink' })
         }
-        // console.log('user name?', userSchema)
-        console.log('user name?', user)
         res.redirect(`/drinks/${drink._id}`)
         // res.redirect('/drinks')
     })

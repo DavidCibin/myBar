@@ -28,7 +28,15 @@
       }
     });
   </script>
-  
+
+
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+  <script>
+    function blinker() {
+      $('.logo').toggleClass('run');
+    }
+    setInterval(blinker, 10000);
+  </script>
 
 
   <link rel="stylesheet" href="/stylesheets/style.css" />
@@ -39,14 +47,6 @@
 </head>
 
 <body>
-
-  <script>
-    function blinker() {
-      $('.logo').fadeOut(100);
-      $('.logo').fadeIn(100);
-    }
-    setInterval(blinker, 10000);
-    </script>
 
   <nav class="nav">
     <div class="container">

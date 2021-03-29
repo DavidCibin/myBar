@@ -7,13 +7,19 @@
 <div class="name">Name: <%= user.name %></div>
 
 <% drinks.forEach(d => { %>
- 
 
-    <div class="name">Name: <%= d.drink %></div>
+    <div>Drinks posted by me: <%= d.drink %></div>
 
-    <% }) %>
+<% }) %>
+
+<% user.forEach(u => { %>
+
+    <div>Drinks I saved: <%= u.drinks %></div>
+
+<% }) %>
+
+
 
 <a href="/drinks/">All drinks</a>
-
 
 <%- include('../partials/footer') %>

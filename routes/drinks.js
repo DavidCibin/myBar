@@ -1,9 +1,6 @@
 const router = require('express').Router()
 const drinksCtrl = require("../controllers/drinks")
 
-// router.get("/", isLoggedIn, drinksCtrl.index)
-// router.get("/new", isLoggedIn, drinksCtrl.new)
-// router.get("/", isLoggedIn, drinksCtrl.create)
 
 router.get("/", drinksCtrl.index)
 router.get("/new", drinksCtrl.new)

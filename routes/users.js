@@ -3,6 +3,7 @@ const usersCtrl = require("../controllers/users");
 
 router.get("/users", usersCtrl.index);
 router.get("/mybooze", usersCtrl.showMyBooze)
+
 // router.get("/getName", isLoggedIn, usersCtrl.getName)
 // router.get("/:id", isLoggedIn, usersCtrl.show)
 // router.get("/:id/friend", isLoggedIn, usersCtrl.addFriend)

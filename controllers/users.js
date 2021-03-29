@@ -6,27 +6,6 @@ module.exports = {
     showMyBooze,
 };
 
-// function showMyBooze(req, res) {
-//     User.findById(req.params._id)
-//     res.render('users/mybooze', {
-//         console.log()
-//         user: req.user, 
-//         title: 'My Booze'
-//     })
-// }
-
-// function show(req, res) {
-//     Drink.findById(req.params.id)
-//     .then((drink) => {
-//         res.render('drinks/show', {
-//             user: req.user,
-//             title: 'Drink details',
-//             drink
-//         })
-//     })
-//     .catch(err => console.log(err))
-// }
-
 function showMyBooze(req, res) {
     Drink.findById(req.params.id)
    

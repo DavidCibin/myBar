@@ -56,18 +56,6 @@ function show(req, res) {
     .catch(err => console.log(err))
 }
 
-// function index(req, res) {
-//     Drink.find({ /*postedBy: req.user._id*/ })
-//         .then((drinks) => {
-//             console.log(drinks);
-//             res.render("drinks/index", {
-//                 title: "All Drinks",
-//                 user: req.user,
-//                 drinks
-//             })
-//         })
-// }
-
 function create(req, res) {
     const drink = new Drink(req.body);
     drink.save( function (err) {
@@ -82,28 +70,6 @@ function create(req, res) {
     })
 }
 
-// function create(req, res){
-//     req.body.postedBy = req.user._id
-//     Drink.create(req.body)
-//     .then((drinks)=>{
-//         res.redirect(`/drinks/${drink._id}`)
-//     })
-// }
-
-
-// function create(req, res) {
-//     const flight = new Flight(req.body);
-//     flight.save(function (err) {
-//       if (err) {
-//         console.log(err)
-//         return res.render('flights/new', {
-//           title: "Add Flight"
-//         })
-//       }
-//       console.log(flight)
-//       res.redirect('/flights');
-//     })
-//   }
 
 function newDrink(req, res) {
     // console.log('user', user);
@@ -113,14 +79,7 @@ function newDrink(req, res) {
         
     })
 }
-// function index(req, res) {
-//     Drink.find({}).then((users) => {
-//         res.render('users/index', {
-//             user: req.user, user,
-//             title: 'Users Index'
-//         })
-//     })
-// }
+
 
 function index(req, res) {
     Drink.find({ /*postedBy: req.user._id*/ })

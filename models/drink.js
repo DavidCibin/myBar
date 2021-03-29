@@ -20,7 +20,7 @@ const drinkSchema = new Schema({
     alcohol: {type:String},
     imageUrl: String,
     videoUrl: String,
-    postedBy: [{ type: Schema.Types.ObjectId, ref: "User" }],
+    postedBy: { type: Schema.Types.ObjectId, ref: "User" },
     reviews: [reviewSchema],
 }, {
     timestamps: true,

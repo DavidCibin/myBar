@@ -7,20 +7,19 @@ module.exports = {
 };
 
 function showMyBooze(req, res) {
-    Drink.findById(req.params.id)
-   
-    User.findById(req.user._id)
-    .populate("postedBy")
-        .then((user) => {
-            // console.log(user.name)
-            console.log('user.drink??', user.drink)
-            // console.log('test 1', drink.drink)
-            // console.log('test 2', drink)
-            res.render("users/mybooze", {
-                user: req.user,
-                title: "Profile Page"
-            });
-        });
+    Drink.find({ postedBy: req.user._id })
+        .then((drinks) => {
+            User.findById(req.user._id)
+                .populate("postedBy")
+                .then((user) => {
+                    res.render("users/mybooze", {
+                        user,
+                        title: "Profile Page",
+                        drinks
+                    });
+                });
+
+        })
 }
 
 // function showMyBooze(req, res) {

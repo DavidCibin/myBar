@@ -10,6 +10,8 @@ router.delete('/:id', drinksCtrl.delete);
 router.put('/:id', drinksCtrl.update)
 router.get('/search', drinksCtrl.search)
 router.post("/:id", drinksCtrl.createReview)
+router.post("/:drinkId/myBooze", drinksCtrl.addToMyBooze) 
+
 
 
 function isLoggedIn(req, res, next) {

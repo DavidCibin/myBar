@@ -7,9 +7,8 @@ const userSchema = new Schema(
     email: String,
     avatar: String,
     googleId: String,
+    drinks: [{ type: Schema.Types.ObjectId, ref: 'Drink' }]
   }, {
-  drinks: [{ type: Schema.Types.ObjectId, ref: 'Drink' }]
-}, {
   timestamps: true
 });
 

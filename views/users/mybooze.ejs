@@ -1,10 +1,17 @@
 
 <%- include('../partials/header') %>
 
+
+
 <div class="avatar"><img src="<%= user.avatar %>"></div>
 <div class="name">Name: <%= user.name %></div>
-<div class="name">Name: <%= user.drink %></div>
 
+<% drinks.forEach(d => { %>
+ 
+
+    <div class="name">Name: <%= d.drink %></div>
+
+    <% }) %>
 
 <a href="/drinks/">All drinks</a>
 

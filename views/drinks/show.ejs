@@ -1,59 +1,74 @@
 <%- include('../partials/header') %>
 
-<h1>Drink details check</h1>
+    <h1>Drink details check</h1>
+
+    <div id="show-page">
+
+        <div class="show-image">
+            <img src="<%=drink.imageUrl%>">
+        </div>
+
+        <div class="show-details">
+            <form action="/<%= drinkId %>/myBooze" method="POST">
+                <button>Save Drink</button>
+            </form>
+
+            <h2>
+                <%=drink.drink%>
+            </h2>
+            <a>Prep time: <%=drink.prepTime%></a><br>
+            <a>Servings: <%=drink.servings%></a><br>
+            <a>Ingredients: <%=drink.ingredients%></a><br>
+            <a>Instructions: <%=drink.prepTime%></a><br>
+            <a>Garnish: <%=drink.prepTime%></a><br>
+            <a>Alcohol: <%=drink.servings%></a><br>
 
 
-    
-    <output value="drink">Drink: <%=drink.drink%></output>
-    
-    <output value="prepTime">Prep time: <%=drink.prepTime%></output>
-    
-</form>
-<br>
-<form action="/drinks/<%=drink._id%>?_method=PUT" method="POST">
-    <a>Drink: </a>
-    <input type="text" name="drink" value="<%=drink.drink%>"><br>
-    <a>Prep time: </a>
-    <input type="number" name="prepTime" value="<%=drink.prepTime%>" required max="99" min="1" maxlength="2" class="input"><br>
-    <button type="submit">Update drink</button>
-</form>
+            </form>
+            <br>
+            <form action="/drinks/<%=drink._id%>?_method=PUT" method="POST">
+                <a>Drink: </a>
+                <input type="text" name="drink" value="<%=drink.drink%>"><br>
+                <a>Prep time: </a>
+                <input type="number" name="prepTime" value="<%=drink.prepTime%>" required max="99" min="1" maxlength="2"
+                    class="input"><br>
+                <button type="submit">Update drink</button>
+            </form>
+        </div>
+    </div>
+
+    <% if (drink.reviews.length) { %>
+
+        <% drink.reviews.forEach(r=> { %>
+
+            <img src="<%= r.avatar %>">
+            <a>Name: <%= r.name %></a>
+            <a>Rate: <%= r.rating %></a>
+            <a>Review: <%= r.content %></a><br>
 
 
-
-<% if (drink.reviews.length) { %>
-
-    <% drink.reviews.forEach(r => { %>
-        
-    <a>Rate:</a>
-    <%= r.rating %><br>
-    <a>Review:</a>
-    <%= r.content %><br>
-
-    <% }) %>
-    
-
-<% } %>
+            <% }) %>
 
 
+                <% } %>
 
-<form action="/drinks/<%=drink._id%>" method="POST">
-    <a>Rate(1-5): </a>
-    <select name="rating">
-        <option></option>
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
-        <option>5</option>
-    </select>
-    <a>Leave a Review: </a>
-    <input type="text" name="content"><br>
-    <button type="submit">Post review</button>
-</form>
-
-
-<a href="/drinks">Back to Index</a>
-
-<%- include('../partials/footer.ejs') %>
+                    <form action="/drinks/<%=drink._id%>" method="POST">
+                        <a>Rate(1-5): </a>
+                        <select name="rating">
+                            <option></option>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                        </select>
+                        <a>Leave a Review: </a>
+                        <input type="text" name="content"><br>
+                        <input type="text" hidden name="postedBy" value="<%= user._id %>">
+                        <button type="submit">Post review</button>
+                    </form>
 
 
+                    <a href="/drinks">Back to Index</a>
+
+                    <%- include('../partials/footer.ejs') %>

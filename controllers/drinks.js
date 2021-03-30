@@ -73,7 +73,7 @@ function update(req, res) {
 
 function delDrink(req, res, next) {
     Drink.findByIdAndDelete(req.params.id, err => {
-        res.redirect('/drinks')
+        res.redirect('/users/myBooze')
     })
 }
 

@@ -4,7 +4,14 @@ const Drink = require("../models/drink");
 module.exports = {
     index,
     showMyBooze,
+    // delete: delDrink,
 };
+
+// function delDrink(req, res, next) {
+//     Drink.findByIdAndDelete(req.params.id, err => {
+//         res.redirect('/myBooze')
+//     })
+// }
 
 function showMyBooze(req, res) {
     Drink.find({ postedBy: req.user._id })

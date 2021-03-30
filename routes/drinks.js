@@ -6,7 +6,7 @@ router.get("/", drinksCtrl.index)
 router.get("/new", drinksCtrl.new)
 router.post("/", drinksCtrl.create)
 router.get("/:id", drinksCtrl.show)
-router.delete('/:id', drinksCtrl.delete);
+router.delete('/:id', drinksCtrl.delete)
 router.put('/:id', drinksCtrl.update)
 router.get('/search', drinksCtrl.search)
 router.post("/:id", drinksCtrl.createReview)

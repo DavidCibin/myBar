@@ -116,6 +116,7 @@ a {
     margin: 20px;
     max-width: 1000px;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 
@@ -137,8 +138,9 @@ a {
 }
 
 .show-details {
-    margin: 10px;
+    width: 500px;
     margin: auto;
+
 }
 /* .card-img {
     border-radius: 10px;

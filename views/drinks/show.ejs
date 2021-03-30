@@ -10,6 +10,8 @@
 
         <div class="show-details">
 
+            <button type="submit" class="btn btn-primary del-btn" data-toggle="button" aria-pressed="false" autocomplete="off">Update Drink</button>
+
             <% if (user.drinks.includes(drink._id)) { %>
                 
                 <form action="/drinks/<%= drink._id %>/myBooze/?_method=DELETE" method="POST">
@@ -27,27 +29,27 @@
 
             <% } %>
 
-            
-            <h2>
+            <div>
+            <h1>
                 <%=drink.drink%>
-            </h2>
+            </h1>
             <p>Prep time: <%=drink.prepTime%></p><br>
             <p>Servings: <%=drink.servings%></p><br>
             <p>Ingredients: <%=drink.ingredients%></p><br>
             <p>Instructions: <%=drink.prepTime%></p><br>
             <p>Garnish: <%=drink.prepTime%></p><br>
             <p>Alcohol: <%=drink.servings%></p><br>
-
+            </div>
 
             </form>
             <br>
             <form action="/drinks/<%=drink._id%>?_method=PUT" method="POST">
-                <a>Drink: </a>
+                <p>Drink: </p>
                 <input type="text" name="drink" value="<%=drink.drink%>"><br>
-                <a>Prep time: </a>
+                <p>Prep time: </p>
                 <input type="number" name="prepTime" value="<%=drink.prepTime%>" required max="99" min="1" maxlength="2"
                     class="input"><br>
-                <button type="submit">Update drink</button>
+                    
             </form>
         </div>
     </div>
@@ -56,17 +58,17 @@
 
         <% drink.reviews.forEach(r=> { %>
 
-            <img src="<%= r.avatar %>">
-            <a>Name: <%= r.postedBy.name %></a>
-            <a>Rate: <%= r.rating %></a>
-            <a>Review: <%= r.content %></a><br>
+            <img src="<%= r.postedBy.avatar %>">
+            <p>Name: <%= r.postedBy.name %></p>
+            <p>Rate: <%= r.rating %></p>
+            <p>Review: <%= r.content %></p><br>
 
             <% }) %>
 
                 <% } %>
 
                     <form action="/drinks/<%=drink._id%>" method="POST">
-                        <a>Rate(1-5): </a>
+                        <p>Rate(1-5): </p>
                         <select name="rating">
                             <option></option>
                             <option>1</option>
@@ -75,7 +77,7 @@
                             <option>4</option>
                             <option>5</option>
                         </select>
-                        <a>Leave a Review: </a>
+                        <p>Leave a Review: </p>
                         <input type="text" name="content"><br>
                         <input type="text" hidden name="postedBy" value="<%= user._id %>">
                         <button type="submit">Post review</button>

@@ -15,12 +15,13 @@ module.exports = {
 
 };
 
-
-function delFromMyBooze(req, res, next) {
+function delFromMyBooze(req, res) {
     User.findById(req.user._id, function (err, user) {
-        Drink.findByIdAndDelete(req.params.id, err => {
-            if (err) console.log(err);
-            res.redirect(`/drinks/${req.params.drinkId}`)
+        Drink.findByIdAndDelete(req.user._id, err => {
+            user.drinks.id(req.params.drinkId).remove()
+            user.save(err => {
+                res.redirect(`/drinks/${req.params.drinkId}`)
+            })
         })
     })
 }

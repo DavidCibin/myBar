@@ -96,18 +96,49 @@ a {
 
 
 #show-page {
-
+    display: inline-flex;
+    margin: 20px;
+    max-width: 1000px;
+    flex-wrap: wrap;
 }
+
+
+
 .show-image {
-    float: left;
     margin: 10px;
     border: 4px solid gray;
     border-radius: 10px;
+    overflow: hidden;
+    width: 450px;
+    height: 500px;
+    /* object-fit: cover; */
 }
+.show-image img {
+    border-radius: 4px;
+    height: 100%;
+    max-width: auto;
+    object-fit: cover;
+}
+
 .show-details {
-    float: right;
     margin: 10px;
+    margin: auto;
 }
+/* .card-img {
+    border-radius: 10px;
+    height: 100%;
+    max-width: auto;
+    object-fit: cover;
+  }
+
+  #card-div {
+    width: 290px;
+    height: 320px;
+    border: 4px solid #9e9e9e6e;
+    border-radius: 15px;
+    transition: width 1s, height 1s, transform 0.5s;
+    box-shadow: 0 0 16px darkgrey;
+  } */
 
 /* Begin of navbar */
 

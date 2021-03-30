@@ -9,8 +9,6 @@
         </div>
 
         <div class="show-details">
-            
-           
 
             <% if (user.drinks.includes(drink._id)) { %>
                 
@@ -33,12 +31,12 @@
             <h2>
                 <%=drink.drink%>
             </h2>
-            <a>Prep time: <%=drink.prepTime%></a><br>
-            <a>Servings: <%=drink.servings%></a><br>
-            <a>Ingredients: <%=drink.ingredients%></a><br>
-            <a>Instructions: <%=drink.prepTime%></a><br>
-            <a>Garnish: <%=drink.prepTime%></a><br>
-            <a>Alcohol: <%=drink.servings%></a><br>
+            <p>Prep time: <%=drink.prepTime%></p><br>
+            <p>Servings: <%=drink.servings%></p><br>
+            <p>Ingredients: <%=drink.ingredients%></p><br>
+            <p>Instructions: <%=drink.prepTime%></p><br>
+            <p>Garnish: <%=drink.prepTime%></p><br>
+            <p>Alcohol: <%=drink.servings%></p><br>
 
 
             </form>
@@ -59,7 +57,7 @@
         <% drink.reviews.forEach(r=> { %>
 
             <img src="<%= r.avatar %>">
-            <a>Name: <%= r.name %></a>
+            <a>Name: <%= r.postedBy.name %></a>
             <a>Rate: <%= r.rating %></a>
             <a>Review: <%= r.content %></a><br>
 

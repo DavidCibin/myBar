@@ -117,9 +117,15 @@ a {
     max-width: 1000px;
     flex-wrap: wrap;
     justify-content: center;
+    background-color: rgba(126, 126, 126, 0.692);
+    border-radius: 10px;
+    padding: 10px;
+    /* padding-bottom: 20px; */
 }
 
-
+.show-details h1 {
+    display: inline-flex;
+}
 
 .show-image {
     margin: 10px;

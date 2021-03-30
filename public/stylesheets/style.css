@@ -125,6 +125,10 @@ a {
 
 .show-details h1 {
     display: inline-flex;
+    background-color: #383737ab;
+    border-radius: 10px;
+    padding: 10px;
+    padding-top: 4px;
 }
 
 .show-image {

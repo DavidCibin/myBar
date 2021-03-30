@@ -13,12 +13,16 @@
            
 
             <% if (user.drinks.includes(drink._id)) { %>
+                
+                <p>can't add</p>
+                
+            <% } else { %>
+
+                
                 <form action="/drinks/<%= drink._id %>/myBooze" method="POST">
                     <button>Save Drink</button>
                 </form>
-            <% } else { %>
 
-                 <p>can't add</p>
 
             <% } %>
 

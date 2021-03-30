@@ -2,15 +2,26 @@
 <%- include('../partials/header') %>
 
 
+<div class="profile-details">
+    <img src="<%= user.avatar %>">
+    <a>Name: <%= user.name %><br>email: <%= user.email %></a><br>
+    <a url="/drinks/new" type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">New Drink</a>
+</div>
 
-<div class="avatar"><img src="<%= user.avatar %>"></div>
-<div class="name">Name: <%= user.name %></div>
-
+<div class="drinks-container">
 <% drinks.forEach(d => { %>
-
-    <div>Drinks posted by me: <%= d.drink %></div>
+    
+    <div class="card bg-dark text-white" id="card-div">
+        <a url="/drinks/new" type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">Delete</a>
+        <img class="card-img" src="<%= d.imageUrl %>" alt="<%= d.drink %>">
+        <div class="card-img-overlay" id="card-content">
+            <h5 class="card-title"><%= d.drink %></h5>
+            <a href="/drinks/<%= d._id %>" id="details-btn" class="btn btn-primary">Details</a>
+        </div>
+    </div>
 
 <% }) %>
+</div>
 
 ????????????????????????????????????????????
 <% if (user.length) { %>

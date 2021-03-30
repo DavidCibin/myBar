@@ -1,10 +1,6 @@
 <%- include('../partials/header') %>
 
-    <h1>All drinks check</h1>
-    <a href="/drinks/new">Add drink</a><br>
-
     <div class="drinks-container">
-        <!-- <div class="row"> -->
 
             <% drinks.forEach(d=> { %>
                 <div class="card bg-dark text-white" id="card-div">
@@ -16,22 +12,6 @@
                 </div>
             <% }) %>
 
-        <!-- </div> -->
     </div>
 
-    <!-- 
-
-<% drinks.forEach(d => { %>
-    
-    <img src="<%= d.imageUrl %>">
-    
-    <form action="/drinks/<%= d._id %>?_method=DELETE" method="POST">
-        <button type="submit">X</button>
-    </form>
-    <a href="/drinks/<%= d._id %>">Drink: <%= d.drink %> </a>
-    
-
-<% }) %> -->
-
-
-    <%- include('../partials/footer') %>
+<%- include('../partials/footer') %>

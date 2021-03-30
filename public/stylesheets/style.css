@@ -60,6 +60,22 @@ a {
   font-size: 20px;
 }
 
+.prep-serv {
+    width: 60px;
+}
+
+.new-details {
+    display: flex;
+    width: auto;
+    background-color: rgba(126, 126, 126, 0.692);
+    justify-content: space-between;
+    border-radius:20px;
+    align-items: center;
+    height:auto;
+    padding: 15px;
+    padding-top: 25px;
+}
+
 .profile-details {
     display: flex;
     width: 800px;

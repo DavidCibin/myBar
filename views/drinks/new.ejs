@@ -1,22 +1,24 @@
 <%- include('../partials/header') %>
     
-<h1>New drink check</h1>
 
+<h1>Add new drink</h1>
+<div class="new-details">
     <form action="/drinks" method="POST">
         <p>Drink: <input type="text" name="drink" required class="input"></p>
-        <p>Prep time: <input type="number" name="prepTime" required class="input"></p>
-        <p>Servings: <input type="number" name="serving" required class="input"></p>
-        <p>Ingredients: <input type="text" name="ingredients" required class="input"></p>
-        <p>Instructions: <input type="text" name="instructions" required class="input"></p>
+        <p>Prep time: <input type="number" name="prepTime" required class="prep-serv" maxlength="2" size="2"> Servings: <input type="number" name="serving" required class="prep-serv" maxlength="2" size="2"></p>
+        <p>Ingredients: <textarea rows="3" cols="30"  name="ingredients" required class="input"></textarea></p>
+        <p>Instructions: <textarea rows="3" cols="30" name="instructions" required class="input"></textarea></p>
         <p>Garnish: <input type="text" name="garnish" required class="input"></p>
         <p>Alcohol: <input type="text" name="alcohol" required class="input"></p>
         <p>Image URL: <input type="text" name="imageUrl" required class="input"></p>
         <p>Video URL: <input type="text" name="videoUrl" class="input"></p>
         <input type="text" hidden name="postedBy" value="<%= user._id %>">
     
-    
-        <input type="submit" value="Add Drink">
+        <button type="submit" class="btn btn-primary del-btn" data-toggle="button" aria-pressed="false" autocomplete="off">Add Drink</button>
+        
     </form>
     
-    <%- include('../partials/footer.ejs') %>
+</div>
+
+<%- include('../partials/footer.ejs') %>
     

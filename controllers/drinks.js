@@ -17,12 +17,12 @@ module.exports = {
 function addToMyBooze(req, res) {
     User.findById(req.user._id, function (err, user) {
         user.drinks.push(req.params.drinkId)
-      user.save(function (err) {
-        if (err) console.log(err);
-        res.redirect(`/drinks/${user._id}`)
-      })
+        user.save(function (err) {
+            if (err) console.log(err);
+            res.redirect(`/drinks/${req.params.drinkId}`)
+        })
     })
-  }
+}
 
 // function addToMyBooze(req, res) {
 //     req.body.postedBy = req.user._id
@@ -79,6 +79,7 @@ function delDrink(req, res, next) {
 
 function show(req, res) {
     Drink.findById(req.params.id)
+    .populate({path: 'reviews.postedBy', model: 'User'})
         .then((drink) => {
             res.render('drinks/show', {
                 user: req.user,

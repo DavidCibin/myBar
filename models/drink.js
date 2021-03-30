@@ -2,8 +2,8 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const reviewSchema = new Schema({
-    postedBy: [{ type: Schema.Types.ObjectId, ref: "User" }],
-    avatar: String,
+    postedBy: { type: Schema.Types.ObjectId, ref: "User" },
+    // avatar: String,
     rating: { type: Number, min: 1, max: 5 },
     content: String,
 }, {

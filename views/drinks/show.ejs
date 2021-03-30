@@ -9,10 +9,20 @@
         </div>
 
         <div class="show-details">
-            <form action="/users/<%= drink.drinkId %>/myBooze" method="POST">
-                <button>Save Drink</button>
-            </form>
+            
+           
 
+            <% if (user.drinks.includes(drink._id)) { %>
+                <form action="/drinks/<%= drink._id %>/myBooze" method="POST">
+                    <button>Save Drink</button>
+                </form>
+            <% } else { %>
+
+                 <p>can't add</p>
+
+            <% } %>
+
+            
             <h2>
                 <%=drink.drink%>
             </h2>
@@ -46,9 +56,7 @@
             <a>Rate: <%= r.rating %></a>
             <a>Review: <%= r.content %></a><br>
 
-
             <% }) %>
-
 
                 <% } %>
 
@@ -68,7 +76,6 @@
                         <button type="submit">Post review</button>
                     </form>
 
-
                     <a href="/drinks">Back to Index</a>
 
-                    <%- include('../partials/footer.ejs') %>
+<%- include('../partials/footer.ejs') %>

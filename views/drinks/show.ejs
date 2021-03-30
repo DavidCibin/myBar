@@ -1,8 +1,5 @@
 <%- include('../partials/header') %>
 
-    <h1>Drink details check</h1>
-    <a href="/drinks/<%= drink._id %>/edit">Edit drink</a><br>
-
     <div id="show-page">
 
         <div class="show-image">
@@ -10,8 +7,8 @@
         </div>
 
         <div class="show-details">
-            <button type="submit" class="btn btn-primary del-btn" data-toggle="button" aria-pressed="false" autocomplete="off">Update Drink</button>
-
+            <a href="/drinks/<%= drink._id %>/edit" class="btn btn-primary del-btn" data-toggle="button" aria-pressed="false" autocomplete="off">Update Drink</a>
+            
             <% if (user.drinks.includes(drink._id)) { %>
                 <form action="/drinks/<%= drink._id %>/myBooze/?_method=DELETE" method="POST">
                     <button type="submit" class="btn btn-primary del-btn" data-toggle="button" aria-pressed="false" autocomplete="off">Unsave Drink</button>    
@@ -35,15 +32,8 @@
             </div>
 
             </form>
-            <br>
-            <form action="/drinks/<%=drink._id%>?_method=PUT" method="POST">
-                <p>Drink: </p>
-                <input type="text" name="drink" value="<%=drink.drink%>"><br>
-                <p>Prep time: </p>
-                <input type="number" name="prepTime" value="<%=drink.prepTime%>" required max="99" min="1" maxlength="2"
-                    class="input"><br>
-                    
-            </form>
+        
+            
         </div>
     </div>
 

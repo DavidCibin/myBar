@@ -4,14 +4,8 @@ const Drink = require("../models/drink");
 module.exports = {
     index,
     showMyBooze,
-    // delete: delDrink,
-};
 
-// function delDrink(req, res, next) {
-//     Drink.findByIdAndDelete(req.params.id, err => {
-//         res.redirect('/myBooze')
-//     })
-// }
+};
 
 function showMyBooze(req, res) {
     Drink.find({ postedBy: req.user._id })
@@ -28,21 +22,6 @@ function showMyBooze(req, res) {
 
         })
 }
-
-// function showMyBooze(req, res) {
-//     User.findById(req.params.id)
-//     .then((userInfo) => {
-//       Game.find({ collectedBy: userInfo._id })
-//       .then((games) => {
-//         res.render('users/show', {
-//           title: 'User Details',
-//           userInfo,
-//           user: req.user,
-//           games
-//         })
-//       })
-//     })
-//   }
 
 function index(req, res) {
     User.find({}).then((users) => {

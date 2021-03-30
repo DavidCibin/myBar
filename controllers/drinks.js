@@ -17,11 +17,14 @@ module.exports = {
 };
 
 function edit(req, res) {
-    Drink.findOne(req.params.id)
-    res.render('drinks/edit', {
-        title: 'Edit drink',
-        user: req.user
-    })
+    Drink.findById(req.params.id)
+        .then(drink => {
+            res.render('drinks/edit', {
+                title: 'Edit drink',
+                user: req.user,
+                drink
+            })
+        })
 }
 
 function delFromMyBooze(req, res) {
@@ -32,17 +35,6 @@ function delFromMyBooze(req, res) {
     })
 }
 
-// function delFromMyBooze(req, res) {
-//     User.findById(req.user._id, function (err, user) {
-//         Drink.findByIdAndDelete(req.user._id, err => {
-//             user.drinks.id(req.params.drinkId).remove()
-//             user.save(err => {
-//                 res.redirect(`/drinks/${req.params.drinkId}`)
-//             })
-//         })
-//     })
-// }
-
 function addToMyBooze(req, res) {
     User.findById(req.user._id, function (err, user) {
         user.drinks.push(req.params.drinkId)
@@ -52,28 +44,6 @@ function addToMyBooze(req, res) {
         })
     })
 }
-
-// function addToMyBooze(req, res) {
-//     req.body.postedBy = req.user._id
-//     Drink.findbyID(req.params.id)
-//         .then((drink) => {
-//             // game is in the database already (someone has already collected it)
-//             if (drink) {
-//                 drink.postedBy.push(req.user._id)
-//                 drink.save()
-//                     .then(() => {
-//                         res.redirect(`/drinks/${req.params.id}`)
-//                     })
-//                     .catch(err => console.log(err))
-//                 // game is NOT in the database already
-//             } else {
-//                 Drink.create(req.body)
-//                     .then(() => {
-//                         res.redirect(`/drinks/${req.params.id}`)
-//                     })
-//             }
-//         })
-// }
 
 function createReview(req, res) {
     req.body.postedBy = req.user._id
@@ -87,17 +57,20 @@ function createReview(req, res) {
         })
 }
 
-
 function search(req, res) {
-    res.render('drinks/search', {
-        title: 'Search Results',
-        user: req.user
-    })
+    Drink.find({ drink: req.body.search - term })
+        .then((drink) => {
+            res.render('drinks/search', {
+                title: 'Search Results',
+                user: req.user,
+                drink
+            })
+        })
 }
 
 function update(req, res) {
     Drink.findByIdAndUpdate(req.params.id, req.body, function (err) {
-        res.redirect('/drinks')
+        res.redirect(`/drinks/${drink._id}`)
     });
 }
 
@@ -137,7 +110,6 @@ function create(req, res) {
     })
 }
 
-
 function newDrink(req, res) {
     // console.log('user', user);
     res.render('drinks/new', {
@@ -146,7 +118,6 @@ function newDrink(req, res) {
 
     })
 }
-
 
 function index(req, res) {
     Drink.find({ /*postedBy: req.user._id*/ })

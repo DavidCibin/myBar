@@ -78,10 +78,14 @@ input, select, textarea{
     height:auto;
     padding: 15px;
     padding-top: 25px;
+    margin-top: 15px;
 }
 
 .new-edit h1 {
     margin-bottom: 20px;
+}
+.new-edit p {
+    font-weight: 500;
 }
 
 .profile-details {

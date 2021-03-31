@@ -129,10 +129,16 @@ a {
     border-radius: 10px;
     padding: 10px;
     padding-top: 4px;
+    margin-top: 6px;
+
 }
 
 .drink-recipe {
     min-height: 450px;
+}
+
+.show-btns {
+    display: inline-flex;
 }
 
 .show-image {

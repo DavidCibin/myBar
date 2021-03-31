@@ -4,7 +4,6 @@ const Drink = require("../models/drink");
 module.exports = {
     index,
     showMyBooze,
-
 };
 
 function showMyBooze(req, res) {

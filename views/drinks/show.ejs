@@ -7,18 +7,9 @@
         </div>
 
         <div class="show-details">
-            <a href="/drinks/<%= drink._id %>/edit" class="btn btn-primary del-btn" data-toggle="button" aria-pressed="false" autocomplete="off">Update Drink</a>
-            
-            <% if (user.drinks.includes(drink._id)) { %>
-                <form action="/drinks/<%= drink._id %>/myBooze/?_method=DELETE" method="POST">
-                    <button type="submit" class="btn btn-primary del-btn" data-toggle="button" aria-pressed="false" autocomplete="off">Unsave Drink</button>    
-                </form>
-            <% } else { %>
-                <form action="/drinks/<%= drink._id %>/myBooze" method="POST">
-                    <button type="submit" class="btn btn-primary del-btn" data-toggle="button" aria-pressed="false" autocomplete="off">Save Drink</button>
-                </form>
-            <% } %>
+
              
+
             <div class="drink-recipe">
                 <h1>
                     <%=drink.drink%>
@@ -31,7 +22,19 @@
                 <p>Alcohol: <%=drink.servings%></p>
             </div>
 
-            </form>
+            <div class="show-btns">
+                <a href="/drinks/<%= drink._id %>/edit" class="btn btn-primary del-btn" data-toggle="button" aria-pressed="false" autocomplete="off">Update Drink</a>
+                
+                    <% if (user.drinks.includes(drink._id)) { %>
+                        <form action="/drinks/<%= drink._id %>/myBooze/?_method=DELETE" method="POST">
+                            <button type="submit" class="btn btn-primary del-btn" data-toggle="button" aria-pressed="false" autocomplete="off">Unsave Drink</button>    
+                        </form>
+                    <% } else { %>
+                        <form action="/drinks/<%= drink._id %>/myBooze" method="POST">
+                            <button type="submit" class="btn btn-primary del-btn" data-toggle="button" aria-pressed="false" autocomplete="off">Save Drink</button>
+                        </form>
+                    <% } %>
+            </div>   
         
             
         </div>
@@ -40,6 +43,9 @@
     <% if (drink.reviews.length) { %>
 
         <% drink.reviews.forEach(r=> { %>
+
+            
+              
 
             <img src="<%= r.postedBy.avatar %>">
             <p>Name: <%= r.postedBy.name %></p>

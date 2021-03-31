@@ -1,33 +1,38 @@
 
 <%- include('../partials/header') %>
-
-
+<!-- begin profile info -->
 <div class="profile-details">
     <img src="<%= user.avatar %>">
     <a>Name: <%= user.name %><br>email: <%= user.email %></a><br>
     <a href="/drinks/new" type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">New Drink</a>
 </div>
+<!-- end profile info -->
+
+<%= JSON.stringify(drinks) %>
+
+<% if (d.postedBy === user._id) { %>
 
 <div class="drinks-container">
-<% drinks.forEach(d => { %>
-    <div id="user-drinks">
+    <% drinks.forEach(d => { %>
+        <div id="user-drinks">
 
-        <form action="/drinks/<%= d._id %>?_method=DELETE" method="POST">
-            <button type="submit" class="btn btn-primary del-btn" data-toggle="button" aria-pressed="false" autocomplete="off">Delete</button>    
-        </form>
+            <form action="/drinks/<%= d._id %>?_method=DELETE" method="POST">
+                <button type="submit" class="btn btn-primary del-btn" data-toggle="button" aria-pressed="false" autocomplete="off">Delete</button>    
+            </form>
         
+            <div class="card bg-dark text-white" id="card-div">
         
-        <div class="card bg-dark text-white" id="card-div">
-        
-            <img class="card-img" src="<%= d.imageUrl %>" alt="<%= d.drink %>">
-            <div class="card-img-overlay" id="card-content">
-                <h5 class="card-title"><%= d.drink %></h5>
-                <a href="/drinks/<%= d._id %>" id="details-btn" class="btn btn-primary">Details</a>
+                <img class="card-img" src="<%= d.imageUrl %>" alt="<%= d.drink %>">
+                <div class="card-img-overlay" id="card-content">
+                    <h5 class="card-title"><%= d.drink %></h5>
+                    <a href="/drinks/<%= d._id %>" id="details-btn" class="btn btn-primary">Details</a>
+                </div>
             </div>
         </div>
-    </div>
 <% }) %>
 </div>
+
+<% } %>
 
 ????????????????????????????????????????????
 <% if (user.length) { %>
@@ -38,8 +43,5 @@
 
 <% }) %>
 <% } %>
-
-
-<a href="/drinks/">All drinks</a>
 
 <%- include('../partials/footer') %>

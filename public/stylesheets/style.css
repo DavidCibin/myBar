@@ -60,12 +60,16 @@ a {
   font-size: 20px;
 }
 
+input, select, textarea{
+    border-radius: 7px;
+}
+
 .prep-serv {
     width: 60px;
 }
 
-.new-details {
-    display: flex;
+.new-edit {
+    /* display: flex; */
     width: auto;
     background-color: rgba(126, 126, 126, 0.692);
     justify-content: space-between;
@@ -74,6 +78,10 @@ a {
     height:auto;
     padding: 15px;
     padding-top: 25px;
+}
+
+.new-edit h1 {
+    margin-bottom: 20px;
 }
 
 .profile-details {
@@ -109,7 +117,6 @@ a {
 #user-drinks {
     max-width: 350px;
 }
-
 
 #show-page {
     display: inline-flex;
@@ -317,7 +324,7 @@ body {
     width: auto;
     height: 65px;
     padding: 0;
-    padding-right: 3rem;
+    padding-right: 2rem;
 }
 
 .nav div.main_list ul li a {
@@ -686,7 +693,7 @@ body {
 
   .searchbar:hover > .search_input{
   padding: 0 10px;
-  width: 150px;
+  width: 120px;
   caret-color:red;
   transition: width 0.7s linear;
   background-color: #353b48;

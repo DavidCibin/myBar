@@ -1,5 +1,7 @@
 <%- include('../partials/header') %>
 
+<div class="new-edit">
+
     <h1>Update drink details</h1>
 
     <form action="/drinks/<%=drink._id%>?_method=PUT" method="POST">
@@ -24,5 +26,7 @@
             </form>
         </div>
     </form>
+
+</div>
 
 <%- include('../partials/footer.ejs') %>

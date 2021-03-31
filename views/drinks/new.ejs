@@ -1,8 +1,9 @@
 <%- include('../partials/header') %>
     
-
+<div class="new-edit">
+    
 <h1>Add new drink</h1>
-<div class="new-details">
+
     <form action="/drinks" method="POST">
         <p>Drink: <input type="text" name="drink" required class="input"></p>
         <p>Prep time: <input type="number" name="prepTime" required class="prep-serv" maxlength="2" size="2"> Servings: <input type="number" name="serving" required class="prep-serv" maxlength="2" size="2"></p>

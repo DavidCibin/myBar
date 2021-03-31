@@ -123,6 +123,18 @@ a {
     /* padding-bottom: 20px; */
 }
 
+.reviews {
+    /* display: inline-flex; */
+    margin: 20px;
+    max-width: 1000px;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: rgba(66, 66, 66, 0.445);
+    border-radius: 10px;
+    padding: 10px;
+    
+}
+
 .show-details h1 {
     display: inline-flex;
     background-color: #383737ab;
@@ -139,16 +151,34 @@ a {
 .review-out {
     font-size: 20px;
     padding: 10px;
-    border-top: 1px solid darkgray;
+    /* max-width: 800px; */
+    border-bottom: 1px solid darkgray;
+    display: flex;
+    align-items: flex-start;
+    /* justify-content: space-evenly; */
+    align-self: center;
+    margin: 20px 20px;
 }
 img.review-avatar {
-    width: 10%;
+    width: 70px;
     margin: 10px;
+    border-radius: 8px;
+    border: 2px solid gray;
 }
 .drink-recipe {
     min-height: 450px;
 }
-
+.rev-content {
+    align-self: center;
+    max-width: 600px;
+}
+.rev-profile {
+    /* min-width: 300px; */
+    margin-right: 20px;
+}
+.rev-name {
+    display: inline-block;
+}
 .show-btns {
     display: inline-flex;
 }
@@ -912,42 +942,3 @@ body {
 
 /* end index page slider */
 
-*{
-    margin: 0;
-    padding: 0;
-}
-.rate {
-    float: left;
-    height: 46px;
-    padding: 0 10px;
-}
-.rate:not(:checked) > input {
-    position:absolute;
-    top:-9999px;
-}
-.rate:not(:checked) > label {
-    float:right;
-    width:1em;
-    overflow:hidden;
-    white-space:nowrap;
-    cursor:pointer;
-    font-size:30px;
-    color:#ccc;
-}
-.rate:not(:checked) > label:before {
-    content: '★ ';
-}
-.rate > input:checked ~ label {
-    color: #ffc700;    
-}
-.rate:not(:checked) > label:hover,
-.rate:not(:checked) > label:hover ~ label {
-    color: #deb217;  
-}
-.rate > input:checked + label:hover,
-.rate > input:checked + label:hover ~ label,
-.rate > input:checked ~ label:hover,
-.rate > input:checked ~ label:hover ~ label,
-.rate > label:hover ~ input:checked ~ label {
-    color: #c59b08;
-}

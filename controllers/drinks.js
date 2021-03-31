@@ -12,7 +12,8 @@ module.exports = {
     createReview,
     addToMyBooze,
     delFromMyBooze,
-    edit
+    edit,
+    escapeRegex
 
 };
 
@@ -57,8 +58,14 @@ function createReview(req, res) {
         })
 }
 
+
+function escapeRegex(string) {
+    return string.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
+}
+
 function search(req, res) {
-    Drink.find({ drink: req.body.search })
+    const regex = new RegExp(escapeRegex(req.body.search), 'gi') 
+    Drink.find({ 'drink': regex })
     .then((drink) => {
         console.log(drink)
         res.render('drinks/search', {

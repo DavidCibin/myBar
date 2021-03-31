@@ -66,17 +66,20 @@
           <% } %>
           </li>
 
+
+          <form action="/drinks/search" method="POST">
           <div class="container h-100">
             <div class="d-flex justify-content-center h-100">
-              <form action="/drinks/search" method="POST">
+              
               <div class="searchbar">
                 <input class="search_input" type="text" name="search" placeholder="Search...">
                 <button type="submit" class="search_icon"><i class="fas fa-search"></i></button>
               </div>
-              </form>
+              
             </div>
           </div>
-          
+        </form>
+
         </ul>
       </div>
       <span class="navTrigger">

@@ -132,6 +132,15 @@ a {
     margin-top: 6px;
 
 }
+.review-in {
+    font-size: 20px;
+    padding: 10px;
+}
+.review-out {
+    font-size: 20px;
+    padding: 10px;
+    display: inline-block;
+}
 
 .drink-recipe {
     min-height: 450px;

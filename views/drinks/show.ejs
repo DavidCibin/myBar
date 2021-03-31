@@ -8,14 +8,11 @@
 
         <div class="show-details">
 
-             
-
             <div class="drink-recipe">
                 <h1>
                     <%=drink.drink%>
                 </h1>
                 <p>Prep time: <%=drink.prepTime%> || Servings: <%=drink.servings%></p>
-                <p></p>
                 <p>Ingredients: <%=drink.ingredients%></p>
                 <p>Instructions: <%=drink.prepTime%></p>
                 <p>Garnish: <%=drink.prepTime%></p>
@@ -40,38 +37,40 @@
         </div>
     </div>
 
-    <% if (drink.reviews.length) { %>
-
-        <% drink.reviews.forEach(r=> { %>
-
-            
-              
-
-            <img src="<%= r.postedBy.avatar %>">
-            <p>Name: <%= r.postedBy.name %></p>
-            <p>Rate: <%= r.rating %></p>
-            <p>Review: <%= r.content %></p><br>
-
+    <div class="reviews">
+        
+        <% if (drink.reviews.length) { %>
+            <div class="review-out"></div>
+            <% drink.reviews.forEach(r=> { %>
+    
+                <img src="<%= r.postedBy.avatar %>">
+                <span>Name: <%= r.postedBy.name %></span>
+                <span>Rate: <%= r.rating %></span>
+                <span>Review: <%= r.content %></span><br>
+    
             <% }) %>
+            </div>
+    
+        <% } %>
+        <div class="review-in">
+            <form action="/drinks/<%=drink._id%>" method="POST">
+                <span>Rate(1-5): </span>
+                <select name="rating">
+                    <option></option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                </select>
+                <span>Leave a Review: </span>
+                <input type="text" name="content">
+                <input type="text" hidden name="postedBy" value="<%= user._id %>">
+                <button type="submit" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">Post review</button>
+                
+            </form>                
+        </div>
 
-                <% } %>
-
-                    <form action="/drinks/<%=drink._id%>" method="POST">
-                        <p>Rate(1-5): </p>
-                        <select name="rating">
-                            <option></option>
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
-                        </select>
-                        <p>Leave a Review: </p>
-                        <input type="text" name="content"><br>
-                        <input type="text" hidden name="postedBy" value="<%= user._id %>">
-                        <button type="submit">Post review</button>
-                    </form>
-
-                    <a href="/drinks">Back to Index</a>
+    </div>
 
 <%- include('../partials/footer.ejs') %>

@@ -59,6 +59,7 @@ function createReview(req, res) {
 
 function search(req, res) {
     Drink.find({ drink: req.body.search })
+    console.log('search', req.body.search)
         .then((drink) => {
             res.render('drinks/search', {
                 title: 'Search Results',

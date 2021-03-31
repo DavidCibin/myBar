@@ -48,18 +48,23 @@
                     <img class="review-avatar" src="<%= r.postedBy.avatar %>">
                     <span class="rev-name"><%= r.postedBy.name %></span>
                     
+                    
                 </div>
-                <div class="rev-content"> <% if (r.rating === 1) { %>
-                    <span>⭐ </span>
+                <div class="rev-content"> 
+                <span class="stars">
+                <% if (r.rating === 1) { %>
+                    ⭐
                 <% } else if (r.rating === 2) { %>
-                    <span>⭐⭐ </span>
+                   ⭐⭐
                 <% } else if (r.rating === 3) { %>
-                    <span>⭐⭐⭐ </span>
+                    ⭐⭐⭐
                 <% } else if (r.rating === 4) { %>
-                    <span>⭐⭐⭐⭐ </span>
+                    ⭐⭐⭐⭐
                 <% } else { %>
-                    <span>⭐⭐⭐⭐⭐ </span>
-                <% } %>"<%= r.content %>"
+                    ⭐⭐⭐⭐⭐
+                <% } %></span>
+                <span class="content-text">"<%= r.content %>"</span>
+                <%= user.createdAt.toLocaleString().split(',')[0] %>
                 </div>
 
                     

@@ -2,30 +2,8 @@
 
 <h1>Search Result</h1>
 
-<img class="card-img" src="<%= d.imageUrl %>" alt="<%= d.drink %>">
-<a href="/drinks/<%= d._id %>" id="details-btn" class="btn btn-primary"><%=drink.drink%></a>
-    
 <a href="/drinks">Back to Index</a>
 
 <%- include('../partials/footer.ejs') %>
 
 
-
-
-<%- include('../partials/header') %>
-
-    <div class="drinks-container">
-
-            <% drinks.forEach(d=> { %>
-                <div class="card bg-dark text-white" id="card-div">
-                    <img class="card-img" src="<%= d.imageUrl %>" alt="<%= d.drink %>">
-                    <div class="card-img-overlay" id="card-content">
-                        <h5 class="card-title"><%= d.drink %></h5>
-                        <a href="/drinks/<%= d._id %>" id="details-btn" class="btn btn-primary">Details</a>
-                    </div>
-                </div>
-            <% }) %>
-
-    </div>
-
-<%- include('../partials/footer') %>

@@ -118,6 +118,11 @@ input, select, textarea{
     margin-left: 25px;
     float: left;
 }
+.updt {
+    float: right;
+    margin-right: 25px;
+}
+
 #user-drinks {
     max-width: 350px;
 }
@@ -890,6 +895,7 @@ body {
     width: 125%;
     height: 125%;
     margin-top: 40px;
+    box-shadow: 0 0 16px darkgrey;
 }
 
 /* Slideshow container */

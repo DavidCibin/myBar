@@ -13,11 +13,12 @@
     <% drinks.forEach(d => { %>
         <% if (d.postedBy.toString() === user._id.toString()) { %>
         
-            <div id="user-drinks">                
+            <div id="user-drinks">
     
                 <form action="/drinks/<%= d._id %>?_method=DELETE" method="POST">
-                    <button type="submit" class="btn btn-primary del-btn" data-toggle="button" aria-pressed="false" autocomplete="off">Delete</button>    
+                    <button type="submit" class="btn btn-danger del-btn" data-toggle="button" aria-pressed="false" autocomplete="off">Delete</button>    
                 </form>
+                <a href="/drinks/<%= d.drink._id %>/edit" class="btn btn-primary updt" data-toggle="button" aria-pressed="false" autocomplete="off">Update Drink</a> 
             
                 <div class="card bg-dark text-white" id="card-div">
             
@@ -35,12 +36,31 @@
             <% }) %>
             <% user.drinks.forEach(s => { %>
                
-                    <div id="user-drinks">                
-            
+                <div id="user-drinks">                
+                    <% if (s.postedBy.toString() === user._id.toString()) { %>
+
                         <form action="/drinks/<%= s._id %>?_method=DELETE" method="POST">
                             <button type="submit" class="btn btn-primary del-btn" data-toggle="button" aria-pressed="false" autocomplete="off">Delete</button>    
                         </form>
-                    
+                    <% } else { %>
+
+                        <%= user.drinks %> 
+                        <%= s._id %> 
+
+                        <% if (!user.drinks.includes(s.drink._id)) { %>
+                           
+                            <form action="/users/<%= s._id %>/myBooze/?_method=DELETE" method="POST">
+                                <button type="submit" class="btn btn-warning del-btn" data-toggle="button" aria-pressed="false" autocomplete="off">Unsave Drink</button>    
+                            </form>
+                        <% } else { %>
+                            <form action="/users/<%= s.drink._id %>/myBooze" method="POST">
+                                <!-- /*Add data to your form*/  -->
+                                <input type="text" value="<%= s.drink._id %>" hidden name="drinkId"> 
+                                <button type="submit" class="btn btn-success del-btn" data-toggle="button" aria-pressed="false" autocomplete="off">Save Drink</button>
+                            </form>
+                        <% } %>
+                        
+                    <% } %>  
                         <div class="card bg-dark text-white" id="card-div">
                     
                             <img class="card-img" src="<%= s.imageUrl %>" alt="<%= s.drink %>">
@@ -49,7 +69,8 @@
                                 <a href="/drinks/<%= s._id %>" id="details-btn" class="btn btn-primary">Details</a>
                             </div>
                         </div>
-                    </div>
+                    
+                </div>
             
             <% }) %>
 </div>

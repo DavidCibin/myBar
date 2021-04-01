@@ -4,33 +4,14 @@ const Drink = require("../models/drink");
 module.exports = {
     index,
     showMyBooze,
-    // savedBooze,
+    delFromMyBooze
 };
 
-
-
-// function savedBooze(req, res) {
-//     Drink.find({ saved: req.params.drinkId })
-//     console.log(req.params.drinkId)
-//         .then((saves) => {
-//             User.findById(req.user._id)
-//                 .populate('saved')
-//                 .then((user) => {
-//                     res.render("users/mybooze", {
-//                         saves,
-//                         title: 'Profile Page',
-//                         user
-//                     })
-//                 })
-//         })
-// }
-
-function index(req, res) {
-    User.find({}).then((users) => {
-        res.render('users/index', {
-            user: req.user, user,
-            title: 'Users Index'
-        })
+function delFromMyBooze(req, res) {
+    let idx = req.user.drinks.indexOf(req.params.drinkId) //req.params.drinkId
+    req.user.drinks.splice(idx, 1)
+    req.user.save(err => {
+        res.redirect(`/users/mybooze`)
     })
 }
 
@@ -50,3 +31,11 @@ function showMyBooze(req, res) {
         })
 }
 
+function index(req, res) {
+    User.find({}).then((users) => {
+        res.render('users/index', {
+            user: req.user, user,
+            title: 'Users Index'
+        })
+    })
+}

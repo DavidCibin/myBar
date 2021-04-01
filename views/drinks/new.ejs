@@ -1,7 +1,7 @@
 <%- include('../partials/header') %>
     
 <div class="new-edit">
-    
+
 <h1>Add new drink</h1>
 
     <form action="/drinks" method="POST">
@@ -15,7 +15,7 @@
         <p>Video URL: <input type="text" name="videoUrl" class="input"></p>
         <input type="text" hidden name="postedBy" value="<%= user._id %>">
     
-        <button type="submit" class="btn btn-primary del-btn" data-toggle="button" aria-pressed="false" autocomplete="off">Add Drink</button>
+        <button type="submit" class="btn btn-success del-btn" data-toggle="button" aria-pressed="false" autocomplete="off">Add Drink</button>
         
     </form>
     

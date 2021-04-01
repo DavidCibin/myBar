@@ -19,20 +19,28 @@
                 <p>Alcohol: <%=drink.servings%></p>
             </div>
 
+            <div><%= drink.postedBy.toString() %> <%= user._id.toString() %></div>
+            <div><%= drink.postedBy == user._id %></div>
+
             <div class="show-btns">
-                <a href="/drinks/<%= drink._id %>/edit" class="btn btn-primary del-btn" data-toggle="button" aria-pressed="false" autocomplete="off">Update Drink</a>
+                <% if (drink.postedBy.toString() === user._id.toString()) { %>
+                    <a href="/drinks/<%= drink._id %>/edit" class="btn btn-primary del-btn" data-toggle="button" aria-pressed="false" autocomplete="off">Update Drink</a>                
                 
+                
+                <% } else { %>
+                 
                     <% if (user.drinks.includes(drink._id)) { %>
                         <form action="/drinks/<%= drink._id %>/myBooze/?_method=DELETE" method="POST">
-                            <button type="submit" class="btn btn-primary del-btn" data-toggle="button" aria-pressed="false" autocomplete="off">Unsave Drink</button>    
+                            <button type="submit" class="btn btn-warning del-btn" data-toggle="button" aria-pressed="false" autocomplete="off">Unsave Drink</button>    
                         </form>
                     <% } else { %>
                         <form action="/drinks/<%= drink._id %>/myBooze" method="POST">
                             <!-- /*Add data to your form*/  -->
                             <input type="text" value="<%= drink._id %>" hidden name="drinkId"> 
-                            <button type="submit" class="btn btn-primary del-btn" data-toggle="button" aria-pressed="false" autocomplete="off">Save Drink</button>
+                            <button type="submit" class="btn btn-success del-btn" data-toggle="button" aria-pressed="false" autocomplete="off">Save Drink</button>
                         </form>
                     <% } %>
+                <% } %>
             </div>   
         
             

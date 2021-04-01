@@ -92,8 +92,9 @@ function show(req, res) {
     Drink.findById(req.params.id)
         .populate({ path: 'reviews.postedBy', model: 'User' })
         .then((drink) => {
-            // console.log(drink.reviews[0].postedBy.name)
-            console.log(drink)
+            // console.log(drink)
+            // console.log('posetedby??', drink.postedBy)
+            // console.log('drink??', drink)
             res.render('drinks/show', {
                 user: req.user,
                 title: 'Drink details',

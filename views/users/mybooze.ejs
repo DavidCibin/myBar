@@ -9,17 +9,10 @@
 <!-- end profile info -->
 
 
-
 <div class="drinks-container">
     <% drinks.forEach(d => { %>
-        <% if (d.postedBy === user._id) { %>
+        <% if (d.postedBy.toString() === user._id.toString()) { %>
         
-            <p>user id: <%= user._id %></p>
-            <p>postedBy: <%= d.postedBy %></p>
-            <p>Drink: <%= d.drink %></p>
-
-
-        <% } else { %>
             <div id="user-drinks">                
     
                 <form action="/drinks/<%= d._id %>?_method=DELETE" method="POST">
@@ -35,34 +28,34 @@
                     </div>
                 </div>
             </div>
+            
 
-        <% } %>
-         
-<% }) %>
+            <% } %>
+            
+            <% }) %>
+            <% user.drinks.forEach(s => { %>
+               
+                    <div id="user-drinks">                
+            
+                        <form action="/drinks/<%= s._id %>?_method=DELETE" method="POST">
+                            <button type="submit" class="btn btn-primary del-btn" data-toggle="button" aria-pressed="false" autocomplete="off">Delete</button>    
+                        </form>
+                    
+                        <div class="card bg-dark text-white" id="card-div">
+                    
+                            <img class="card-img" src="<%= s.imageUrl %>" alt="<%= s.drink %>">
+                            <div class="card-img-overlay" id="card-content">
+                                <h5 class="card-title"><%= s.drink %></h5>
+                                <a href="/drinks/<%= s._id %>" id="details-btn" class="btn btn-primary">Details</a>
+                            </div>
+                        </div>
+                    </div>
+            
+            <% }) %>
 </div>
 
 <div class="drinks-container">
-    <% user.drinks.forEach(s => { %>
-       
-            <div id="user-drinks">                
-    
-                <form action="/drinks/<%= s._id %>?_method=DELETE" method="POST">
-                    <button type="submit" class="btn btn-primary del-btn" data-toggle="button" aria-pressed="false" autocomplete="off">Delete</button>    
-                </form>
-            
-                <div class="card bg-dark text-white" id="card-div">
-            
-                    <img class="card-img" src="<%= s.imageUrl %>" alt="<%= s.drink %>">
-                    <div class="card-img-overlay" id="card-content">
-                        <h5 class="card-title"><%= s.drink %></h5>
-                        <a href="/drinks/<%= s._id %>" id="details-btn" class="btn btn-primary">Details</a>
-                    </div>
-                </div>
-            </div>
 
-        
-         
-<% }) %>
 </div>
 
 <%- include('../partials/footer') %>

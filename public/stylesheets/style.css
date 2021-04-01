@@ -193,6 +193,12 @@ img.review-avatar {
 }
 .drink-recipe {
     min-height: 450px;
+    border-bottom: 1px solid darkgray;
+}
+.drink-recipe p {
+    padding-bottom: 5px;
+    border-bottom: 1px solid darkgray;
+    white-space: pre-line;
 }
 .rev-content {
     align-self: center;
@@ -207,6 +213,12 @@ img.review-avatar {
 }
 .show-btns {
     display: inline-flex;
+}
+
+.posted-by {
+    display: flex;
+    align-items: center;
+    padding: 5px;
 }
 
 .show-image {

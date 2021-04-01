@@ -14,7 +14,6 @@ module.exports = {
     delFromMyBooze,
     edit,
     escapeRegex
-
 };
 
 function edit(req, res) {
@@ -91,9 +90,6 @@ function show(req, res) {
     Drink.findById(req.params.id)
         .populate({ path: 'reviews.postedBy', model: 'User' })
         .then((drink) => {
-            // console.log(drink)
-            // console.log('posetedby??', drink.postedBy)
-            // console.log('drink??', drink)
             res.render('drinks/show', {
                 user: req.user,
                 title: 'Drink details',
@@ -114,12 +110,10 @@ function create(req, res) {
             })
         }
         res.redirect(`/drinks/${drink._id}`)
-        // res.redirect('/drinks')
     })
 }
 
 function newDrink(req, res) {
-    // console.log('user', user);
     res.render('drinks/new', {
         user: req.user,
         title: 'New Drink',
@@ -128,9 +122,8 @@ function newDrink(req, res) {
 }
 
 function index(req, res) {
-    Drink.find({ /*postedBy: req.user._id*/ })
+    Drink.find({})
         .then((drinks) => {
-            // console.log(drinks);
             res.render("drinks/index", {
                 title: "All Drinks",
                 user: req.user,

@@ -75,7 +75,7 @@ function search(req, res) {
 }
 
 function update(req, res) {
-    Drink.findByIdAndUpdate(req.params.id, req.body, function (err) {
+    Drink.findByIdAndUpdate(req.params.id, req.body, function (err, drink) {
         res.redirect(`/drinks/${drink._id}`)
     });
 }

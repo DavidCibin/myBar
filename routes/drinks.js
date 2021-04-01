@@ -2,17 +2,17 @@ const router = require('express').Router()
 const drinksCtrl = require("../controllers/drinks")
 
 
-router.get('/', drinksCtrl.index)
-router.get('/new', drinksCtrl.new)
-router.post('/', drinksCtrl.create)
-router.post('/search', drinksCtrl.search)
-router.get('/:id', drinksCtrl.show)
-router.get('/:id/edit', drinksCtrl.edit)
-router.delete('/:id', drinksCtrl.delete)
-router.put('/:id', drinksCtrl.update)
-router.post('/:id', drinksCtrl.createReview)
-router.post('/:drinkId/myBooze', drinksCtrl.addToMyBooze) 
-router.delete('/:drinkId/myBooze', drinksCtrl.delFromMyBooze)
+router.get('/', isLoggedIn, drinksCtrl.index)
+router.get('/new', isLoggedIn, drinksCtrl.new)
+router.post('/', isLoggedIn, drinksCtrl.create)
+router.post('/search', isLoggedIn, drinksCtrl.search)
+router.get('/:id', isLoggedIn, drinksCtrl.show)
+router.get('/:id/edit', isLoggedIn, drinksCtrl.edit)
+router.delete('/:id', isLoggedIn, drinksCtrl.delete)
+router.put('/:id', isLoggedIn, drinksCtrl.update)
+router.post('/:id', isLoggedIn, drinksCtrl.createReview)
+router.post('/:drinkId/myBooze', isLoggedIn, drinksCtrl.addToMyBooze) 
+router.delete('/:drinkId/myBooze', isLoggedIn, drinksCtrl.delFromMyBooze)
 
 
 function isLoggedIn(req, res, next) {

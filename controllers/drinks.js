@@ -28,7 +28,7 @@ function edit(req, res) {
 }
 
 function delFromMyBooze(req, res) {
-    let idx = req.user.drinks.indexOf(req.params.drinkId) //req.params.drinkId
+    let idx = req.user.drinks.indexOf(req.params.drinkId)
     req.user.drinks.splice(idx, 1)
     req.user.save(err => {
         res.redirect(`/drinks/${req.params.drinkId}`)

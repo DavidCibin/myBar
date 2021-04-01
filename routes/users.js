@@ -1,9 +1,9 @@
 const router = require("express").Router();
 const usersCtrl = require("../controllers/users");
 
-router.get("/users", usersCtrl.index);
-router.get("/mybooze", usersCtrl.showMyBooze)
-router.delete('/:drinkId/myBooze', usersCtrl.delFromMyBooze)
+router.get("/users", isLoggedIn, usersCtrl.index);
+router.get("/mybooze", isLoggedIn, usersCtrl.showMyBooze)
+router.delete('/:drinkId/myBooze', isLoggedIn, usersCtrl.delFromMyBooze)
 // router.delete('/:id', usersCtrl.delete)
 
 // router.get("/getName", isLoggedIn, usersCtrl.getName)

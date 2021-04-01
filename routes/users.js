@@ -6,13 +6,6 @@ router.get("/mybooze", isLoggedIn, usersCtrl.showMyBooze)
 router.put('/:id', isLoggedIn, usersCtrl.update)
 router.get('/:id/edit', isLoggedIn, usersCtrl.edit)
 router.delete('/:drinkId/myBooze', isLoggedIn, usersCtrl.delFromMyBooze)
-// router.delete('/:id', usersCtrl.delete)
-
-// router.get("/getName", isLoggedIn, usersCtrl.getName)
-// router.get("/:id", isLoggedIn, usersCtrl.show)
-// router.get("/:id/friend", isLoggedIn, usersCtrl.addFriend)
-// router.get("/:id/unfriend", isLoggedIn, usersCtrl.removeFriend)
-// router.put("/profile", isLoggedIn, usersCtrl.update)
 
 function isLoggedIn(req, res, next) {
   if (req.isAuthenticated()) return next();

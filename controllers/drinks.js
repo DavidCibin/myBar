@@ -58,18 +58,17 @@ function createReview(req, res) {
         })
 }
 
-
 function escapeRegex(string) {
     return string.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
 }
 
 function search(req, res) {
-    const regex = new RegExp(escapeRegex(req.body.search), 'gi') 
+    const regex = new RegExp(escapeRegex(req.body.search), 'gi')
     Drink.find({ 'drink': regex })
-    .then((drink) => {
-        console.log(drink)
-        res.render('drinks/search', {
-                title: 'Search Results',
+        .then((drink) => {
+            console.log(drink)
+            res.render('drinks/search', {
+                title: 'Search Result',
                 user: req.user,
                 drink
             })

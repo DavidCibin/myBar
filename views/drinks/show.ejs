@@ -1,13 +1,11 @@
 <%- include('../partials/header') %>
 
     <div id="show-page">
-
         <div class="show-image">
             <img src="<%=drink.imageUrl%>">
         </div>
 
         <div class="show-details">
-
             <div class="drink-recipe">
                 <h1>
                     <%=drink.drink%>
@@ -26,7 +24,6 @@
                 <% if (drink.postedBy.toString() === user._id.toString()) { %>
                     <a href="/drinks/<%= drink._id %>/edit" class="btn btn-primary del-btn" data-toggle="button" aria-pressed="false" autocomplete="off">Update Drink</a>                
                 
-                
                 <% } else { %>
                  
                     <% if (user.drinks.includes(drink._id)) { %>
@@ -39,50 +36,42 @@
                             <input type="text" value="<%= drink._id %>" hidden name="drinkId"> 
                             <button type="submit" class="btn btn-success del-btn" data-toggle="button" aria-pressed="false" autocomplete="off">Save Drink</button>
                         </form>
+
                     <% } %>
                 <% } %>
             </div>   
-        
-            
         </div>
     
+        <div class="reviews">
+            <% if (drink.reviews.length) { %>
+                <% drink.reviews.forEach(r=> { %>
 
-    <div class="reviews">
-        
-        <% if (drink.reviews.length) { %>
-            
-            <% drink.reviews.forEach(r=> { %>
-
-            <div class="review-out">
-                <div class="rev-profile">
-                    <img class="review-avatar" src="<%= r.postedBy.avatar %>">
-                    <span class="rev-name"><%= r.postedBy.name %></span>
-                    
-                    
-                </div>
-                <div class="rev-content"> 
-                <span class="stars">
-                <% if (r.rating === 1) { %>
-                    ⭐
-                <% } else if (r.rating === 2) { %>
-                   ⭐⭐
-                <% } else if (r.rating === 3) { %>
-                    ⭐⭐⭐
-                <% } else if (r.rating === 4) { %>
-                    ⭐⭐⭐⭐
-                <% } else { %>
-                    ⭐⭐⭐⭐⭐
-                <% } %></span>
-                <span class="content-text">"<%= r.content %>"</span>
-                <%= user.createdAt.toLocaleString().split(',')[0] %>
-                </div>
-
-                    
-            </div>
+                    <div class="review-out">
+                        <div class="rev-profile">
+                            <img class="review-avatar" src="<%= r.postedBy.avatar %>">
+                            <span class="rev-name"><%= r.postedBy.name %></span>  
+                        </div>
+                        <div class="rev-content"> 
+                        <span class="stars">
+                        <% if (r.rating === 1) { %>
+                            ⭐
+                        <% } else if (r.rating === 2) { %>
+                        ⭐⭐
+                        <% } else if (r.rating === 3) { %>
+                            ⭐⭐⭐
+                        <% } else if (r.rating === 4) { %>
+                            ⭐⭐⭐⭐
+                        <% } else { %>
+                            ⭐⭐⭐⭐⭐
+                        <% } %></span>
+                        <span class="content-text">"<%= r.content %>"</span>
+                        <%= user.createdAt.toLocaleString().split(',')[0] %>
+                    </div>
+      
                 <% }) %>
-               
-    
-        <% } %>
+            <% } %>  
+        </div>
+
         <div class="review-in">
             <form action="/drinks/<%=drink._id%>" method="POST">
                 <span>Rate(1-5): </span>
@@ -98,13 +87,9 @@
                 <input type="text" size="40" name="content">
                 <input type="text" hidden name="postedBy" value="<%= user._id %>">
                 <button type="submit" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">Post review</button>
-                
             </form>                
         </div>
-
     </div>
-
 </div> 
     
-
 <%- include('../partials/footer.ejs') %>

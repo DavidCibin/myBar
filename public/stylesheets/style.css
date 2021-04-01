@@ -66,12 +66,13 @@ input, select, textarea{
 
 .prep-serv {
     width: 60px;
+    margin-right: 20px;
 }
 
 .new-edit {
     /* display: flex; */
     width: auto;
-    background-color: rgba(126, 126, 126, 0.692);
+    background-color: rgb(60 58 58 / 69%);
     justify-content: space-between;
     border-radius:20px;
     align-items: center;
@@ -133,7 +134,7 @@ input, select, textarea{
     max-width: 1000px;
     flex-wrap: wrap;
     justify-content: center;
-    background-color: rgba(126, 126, 126, 0.692);
+    background-color: rgb(60 58 58 / 69%);
     border-radius: 10px;
     padding: 10px;
     /* padding-bottom: 20px; */
@@ -145,7 +146,7 @@ input, select, textarea{
     max-width: 1000px;
     flex-wrap: wrap;
     justify-content: center;
-    background-color: rgba(66, 66, 66, 0.445);
+    background-color: rgb(111 111 111 / 45%);
     border-radius: 10px;
     padding: 10px;
     

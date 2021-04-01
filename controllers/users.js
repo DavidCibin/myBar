@@ -4,8 +4,28 @@ const Drink = require("../models/drink");
 module.exports = {
     index,
     showMyBooze,
-    delFromMyBooze
+    delFromMyBooze,
+    update,
+    edit
 };
+
+function edit(req, res) {
+    Drink.findById(req.params.id)
+        .then(drink => {
+            res.render('drinks/edit', {
+                title: 'Edit drink',
+                user: req.user,
+                drink
+            })
+        })
+}
+
+function update(req, res) {
+    console.log('REQ???', req.params.id)
+    Drink.findByIdAndUpdate(req.params.id, req.body, function (err, drink) {
+        res.redirect(`/drinks/${drink._id}`)
+    });
+}
 
 function delFromMyBooze(req, res) {
     let idx = req.user.drinks.indexOf(req.params.drinkId)

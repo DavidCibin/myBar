@@ -7,17 +7,17 @@
     <form action="/drinks/<%=drink._id%>?_method=PUT" method="POST">
        <div class="edit-details">
             <form action="/drinks" method="POST">
-                <p>Drink: <input type="text" name="drink" required class="input" value="<%=drink.drink%>"></p>
+                <p>Drink: <input type="text" name="drink" required size="53" class="input" value="<%=drink.drink%>"></p>
                 <p>Prep time: <input type="number" name="prepTime" required class="prep-serv" maxlength="2" size="2"
                         value="<%=drink.prepTime%>"> Servings: <input type="number" name="serving" required
                         class="prep-serv" maxlength="2" size="2" value="<%=drink.serving%>"></p>
-                <p>Ingredients: <textarea rows="3" cols="30" name="ingredients" required class="input"
+                <p>Ingredients: <textarea rows="7" cols="50" name="ingredients" required class="input"
                         ><%=drink.ingredients%></textarea></p>
-                <p>Instructions: <textarea rows="3" cols="30" name="instructions" required class="input"
+                <p>Instructions: <textarea rows="7" cols="50" name="instructions" required class="input"
                         ><%=drink.instructions%></textarea></p>
                 <!-- <p>Garnish: <input type="text" name="garnish" required class="input" value="<%=drink.garnish%>"></p> -->
                 <!-- <p>Alcohol: <input type="text" name="alcohol" required class="input" value="<%=drink.alcohol%>"></p> -->
-                <p>Image URL: <input type="text" name="imageUrl" required class="input" value="<%=drink.imageUrl%>"></p>
+                <p>Image URL: <input type="text" name="imageUrl" required class="input" size="48" value="<%=drink.imageUrl%>"></p>
                 <!-- <p>Video URL: <input type="text" name="videoUrl" class="input" value="<%=drink.videoUrl%>"></p> -->
                 <input type="text" hidden name="postedBy" value="<%= user._id %>">
 

@@ -13,7 +13,6 @@ const drinkSchema = new Schema({
     drink: String,
     prepTime: Number,
     serving: Number,
-    test: [{type:String}],
     ingredients: [{type:String}],
     instructions: {type:String},
     garnish: {type:String},

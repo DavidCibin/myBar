@@ -1,3 +1,30 @@
-<h1><%= message %></h1>
-<h2><%= error.status %></h2>
-<pre><%= error.stack %></pre>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    
+    <title>Wrong Page</title>
+</head>
+
+<body>
+    <main>
+        <h1>
+            <%= error.status %> - <%= message %>
+        </h1>
+        <div class="error">
+            <h1 class="error-msg">
+                Are you drunk??<br>
+                This is the wrong page!
+            </h1>
+            <a href="/" class="err-btn">Home Page</a>
+        </div>
+        <pre><%= error.stack %></pre>
+
+    </main>
+</body>
+
+</html>

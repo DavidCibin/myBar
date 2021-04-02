@@ -89,6 +89,20 @@ input, select, textarea{
     font-weight: 500;
 }
 
+.error {
+    background-color: rgba(27, 27, 27, 0.692);
+    padding: 30px;
+    border-radius:20px;
+    text-align: center;
+}
+.err-btn {
+    background-color: darkgray;
+    padding: 8px;
+    border-radius: 8px;
+    text-decoration: none;
+    color: black;
+}
+
 .profile-details {
     display: flex;
     width: 800px;

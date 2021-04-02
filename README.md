@@ -23,3 +23,10 @@ Wiriframe
 
 This application aims to demonstrate what was taught in unit 2 of the Software Engineering Immersive program offered by [General Assembly](https://www.generalassemb.ly). This project consists in building a full-stack application from the groud up, using full 'MEN' stack application (MongoDB, Express, Node), handling the communication of CRUD actions (Create, Read, Update, Delete) between server and client.
 
+## Getting Started
+
+From my head to the "board", I used [Miro](https://miro.com/app/board/o9J_lNajHwA=/) for my wiriframe
+
+For my planning, I used [Trello](https://trello.com/b/VAZFgOAG/mybar) to keep track of each step  and keep everything organized 
+
+This app was deployed using Heroku and you can access it [here](mybooze.herokuapp.com)

@@ -102,6 +102,7 @@ input, select, textarea{
 .profile-details img {
     border-radius: 8px;
     margin: 10px;
+    border: 2px solid gray
 }
 .profile-details a {
     font-size: 20px;
@@ -159,12 +160,12 @@ input, select, textarea{
 
 .show-details h1 {
     display: inline-flex;
-    background-color: #383737ab;
+    background-color: #27272794;
     border-radius: 10px;
     padding: 10px;
     padding-top: 4px;
     margin-top: 6px;
-
+    text-transform: capitalize;
 }
 .review-in {
     font-size: 20px;

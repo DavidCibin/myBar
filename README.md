@@ -30,6 +30,7 @@ Trello
 ![myBar - trello screenshot](public/images/trello.png)
 
 Wiriframe
+
 ![myBar - wiriframe screenshot](public/images/Wireframe.png)
 
 ## Technology
@@ -59,8 +60,8 @@ Add Facebook login option
 
 ### Credits:
 
-Favicon: [favicon.io](https://favicon.io/)
-Background: [Alpha Coders](https://wall.alphacoders.com/)
-Drinks recipes: [Allrecipes](https://www.allrecipes.com/)
-Toolkit: [Bootstrap](https://getbootstrap.com/)
-Fonts: [Google fonts](https://fonts.google.com/) & [Neon font used for logo](https://www.mansgreback.com/)
+* Favicon: [favicon.io](https://favicon.io/)
+* Background: [Alpha Coders](https://wall.alphacoders.com/)
+* Drinks recipes: [Allrecipes](https://www.allrecipes.com/)
+* Toolkit: [Bootstrap](https://getbootstrap.com/)
+* Fonts: [Google fonts](https://fonts.google.com/) & [Neon font used for logo](https://www.mansgreback.com/)

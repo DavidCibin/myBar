@@ -21,7 +21,7 @@ All Drinks
 ![myBar - all drinks page screenshot](public/images/all-drinks.png)
 
 Drink Info
-![myBar - show page screenshot](public/images/all-drinks.png)
+![myBar - show page screenshot](public/images/show-page.png)
 
 Profile Page
 ![myBar - profile(aka myBooze) page screenshot](public/images/myBar.png)

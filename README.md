@@ -1,6 +1,17 @@
 # myBar - Created by David Cibin
  
-![Emoji Slot Machine Main Screenshot](public/images/landing-page.jpg)
+![myBar - landing page screenshot](public/images/landing-page.jpg)
+
+![myBar - all drinks page screenshot](public/images/all-drinks.png)
+
+![myBar - show page screenshot](public/images/all-drinks.png)
+
+![myBar - profile(aka myBooze) page screenshot](public/images/myBar.png)
+
+![myBar - trello screenshot](public/images/trello.png)
+
+![myBar - wiriframe screenshot](public/images/Wireframe.png)
+
 
 ## About
  

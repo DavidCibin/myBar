@@ -10,7 +10,7 @@ From my head to the "board", I used [Miro](https://miro.com/app/board/o9J_lNajHw
 
 For my planning, I used [Trello](https://trello.com/b/VAZFgOAG/mybar) to keep track of each step  and keep everything organized 
 
-This app was deployed using Heroku and you can access it [here](mybooze.herokuapp.com)
+This app was deployed using Heroku and you can access it [here](https://mybooze.herokuapp.com/)
 
 ### Screenshots
  

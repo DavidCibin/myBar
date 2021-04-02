@@ -1,6 +1,6 @@
 # myBar - Created by David Cibin
  
-![Emoji Slot Machine Main Screenshot](/images/landing-page.jpg)
+![Emoji Slot Machine Main Screenshot](public/images/landing-page.jpg)
 
 ## About
  

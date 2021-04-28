@@ -184,6 +184,7 @@ input, select, textarea{
 .review-in {
     font-size: 20px;
     padding: 10px;
+    text-align: center;
 }
 .review-out {
     font-size: 20px;
@@ -734,7 +735,7 @@ body {
   .searchbar:hover > .search_input{
   padding: 0 10px;
   width: 120px;
-  caret-color:red;
+  /* caret-color:red; */
   transition: width 0.7s linear;
   background-color: #353b48;
   color: white;
@@ -742,7 +743,7 @@ body {
 
   .searchbar:hover > .search_icon{
     background-color: #353b48;
-    color: #e74c3c;
+    color: #a3e174;
   }
 
   .search_icon{

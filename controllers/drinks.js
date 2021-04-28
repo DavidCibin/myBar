@@ -1,5 +1,6 @@
 const User = require("../models/user");
 const Drink = require("../models/drink");
+const axios = require("axios")
 
 module.exports = {
     index,
@@ -87,7 +88,7 @@ function delDrink(req, res, next) {
 }
 
 function show(req, res) {
-    console.log(req.params.id)
+    // console.log(req.params.id)
     Drink.findById(req.params.id)
         .populate({ path: 'reviews.postedBy', model: 'User' })
         .populate({ path: 'postedBy', model: 'User' })

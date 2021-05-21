@@ -88,7 +88,7 @@ function delDrink(req, res, next) {
 }
 
 function show(req, res) {
-    // console.log(req.params.id)
+    // console.log(req.params.id) //GET ALL INFO
     Drink.findById(req.params.id)
         .populate({ path: 'reviews.postedBy', model: 'User' })
         .populate({ path: 'postedBy', model: 'User' })

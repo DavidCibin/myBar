@@ -6,7 +6,7 @@ This application aims to demonstrate what was taught in unit 2 of the Software E
 
 ### Getting Started
 
-From my head to the "board", I used [Miro](https://miro.com/app/board/o9J_lNajHwA=/) for my wiriframe
+From my head to the "board", I used [Miro](https://miro.com/app/board/o9J_lNajHwA=/) for my wireframe
 
 For my planning, I used [Trello](https://trello.com/b/VAZFgOAG/mybar) to keep track of each step  and keep everything organized 
 
@@ -29,9 +29,9 @@ Profile Page
 Trello
 ![myBar - trello screenshot](public/images/trello.png)
 
-Wiriframe
+Wireframe
 
-![myBar - wiriframe screenshot](public/images/Wireframe.png)
+![myBar - wireframe screenshot](public/images/Wireframe.png)
 
 ### Technology
  

@@ -22,7 +22,7 @@ require("./config/passport");
 const indexRouter = require("./routes/index");
 const authRouter = require("./routes/auth");
 const usersRouter = require("./routes/users");
-const drinksRouter = require("./routes/drinks")
+const drinksRouter = require("./routes/drinks");
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
@@ -51,11 +51,21 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
-// router middleware
-app.use("/", indexRouter);
-app.use("/auth", authRouter);
-app.use("/users", usersRouter);
-app.use("/drinks", drinksRouter);
+// Google OAuth routes
+app.get(
+  "/auth/google",
+  passport.authenticate("google", {
+    scope: ["profile", "email"],
+  })
+);
+
+app.get(
+  "/auth/google/callback",
+  passport.authenticate("google", {
+    failureRedirect: "/login",
+    successRedirect: "/",
+  })
+);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
@@ -71,45 +81,6 @@ app.use(function (err, req, res, next) {
   // render the error page
   res.status(err.status || 500);
   res.render("error");
-});
-
-app.get('/auth/google',
-  passport.authenticate('google', {
-    scope: ['profile', 'email']
-  })
-);
-
-if (process.env.NODE_ENV === 'production') {
-  // Use deployed callback URL in production
-  callbackURL = 'https://mybar.onrender.com/auth/google/oauth2callback';
-} else {
-  // Use local callback URL in development
-  callbackURL = 'https://localhost:3000/auth/google/oauth2callback';
-}
-
-
-app.get('/auth/google/oauth2callback',
-  passport.authenticate('google', { scope: ['profile', 'email'] }),
-  (req, res) => {
-    // This middleware will not be invoked. Passport will redirect to Google.
-  }
-);
-
-// Callback route after Google has authenticated the user
-app.get('/auth/google/callback',
-  passport.authenticate('google', { failureRedirect: '/login' }), // Redirect to login page on authentication failure
-  (req, res) => {
-    // Successful authentication, redirect to the appropriate page (e.g., dashboard)
-    res.redirect('/');
-  }
-);
-
-// Error handling for OAuth authentication
-app.use('/auth/google/oauth2callback', (err, req, res, next) => {
-  console.error(err); // Log the error for debugging
-
-  // Handle the error by redirecting the user to the login page
-  res.redirect('/login'); // Redirect to login page or handle the error appropriately
 });
 
 module.exports = app;

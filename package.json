@@ -1,5 +1,5 @@
 {
-  "name": "men_template",
+  "name": "myBar",
   "version": "0.0.0",
   "private": true,
   "scripts": {
@@ -19,5 +19,8 @@
     "morgan": "~1.9.1",
     "passport": "^0.4.1",
     "passport-google-oauth20": "^2.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
   }
 }

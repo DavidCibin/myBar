@@ -85,7 +85,7 @@ app.get('/auth/google/callback',
   passport.authenticate('google', { failureRedirect: '/login' }), // Redirect to login page on authentication failure
   (req, res) => {
     // Successful authentication, redirect to the appropriate page (e.g., dashboard)
-    res.redirect('/dashboard');
+    res.redirect('/');
   }
 );
 

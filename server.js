@@ -73,6 +73,21 @@ app.use(function (err, req, res, next) {
   res.render("error");
 });
 
+app.get('/auth/google',
+  passport.authenticate('google', {
+    scope: ['profile', 'email']
+  })
+);
+
+if (process.env.NODE_ENV === 'production') {
+  // Use deployed callback URL in production
+  callbackURL = 'https://mybar.onrender.com/auth/google/oauth2callback';
+} else {
+  // Use local callback URL in development
+  callbackURL = 'https://localhost:3000/auth/google/oauth2callback';
+}
+
+
 app.get('/auth/google/oauth2callback',
   passport.authenticate('google', { scope: ['profile', 'email'] }),
   (req, res) => {

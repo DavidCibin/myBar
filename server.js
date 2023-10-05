@@ -73,4 +73,28 @@ app.use(function (err, req, res, next) {
   res.render("error");
 });
 
+app.get('/auth/google/oauth2callback',
+  passport.authenticate('google', { scope: ['profile', 'email'] }),
+  (req, res) => {
+    // This middleware will not be invoked. Passport will redirect to Google.
+  }
+);
+
+// Callback route after Google has authenticated the user
+app.get('/auth/google/callback',
+  passport.authenticate('google', { failureRedirect: '/login' }), // Redirect to login page on authentication failure
+  (req, res) => {
+    // Successful authentication, redirect to the appropriate page (e.g., dashboard)
+    res.redirect('/dashboard');
+  }
+);
+
+// Error handling for OAuth authentication
+app.use('/auth/google/oauth2callback', (err, req, res, next) => {
+  console.error(err); // Log the error for debugging
+
+  // Handle the error by redirecting the user to the login page
+  res.redirect('/login'); // Redirect to login page or handle the error appropriately
+});
+
 module.exports = app;

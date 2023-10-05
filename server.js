@@ -22,7 +22,7 @@ require("./config/passport");
 const indexRouter = require("./routes/index");
 const authRouter = require("./routes/auth");
 const usersRouter = require("./routes/users");
-const drinksRouter = require("./routes/drinks");
+const drinksRouter = require("./routes/drinks")
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
@@ -51,21 +51,11 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
-// Google OAuth routes
-app.get(
-  "/auth/google",
-  passport.authenticate("google", {
-    scope: ["profile", "email"],
-  })
-);
-
-app.get(
-  "/auth/google/callback",
-  passport.authenticate("google", {
-    failureRedirect: "/login",
-    successRedirect: "/",
-  })
-);
+// router middleware
+app.use("/", indexRouter);
+app.use("/auth", authRouter);
+app.use("/users", usersRouter);
+app.use("/drinks", drinksRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
@@ -81,6 +71,7 @@ app.use(function (err, req, res, next) {
   // render the error page
   res.status(err.status || 500);
   res.render("error");
+  console.error(err)
 });
 
 module.exports = app;

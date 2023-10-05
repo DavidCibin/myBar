@@ -10,7 +10,7 @@ From my head to the "board", I used [Miro](https://miro.com/app/board/o9J_lNajHw
 
 For my planning, I used [Trello](https://trello.com/b/VAZFgOAG/mybar) to keep track of each step  and keep everything organized 
 
-This app was deployed using Heroku and you can access it [here](https://mybar.fly.dev/)
+This app was deployed using Render and you can access it [here](https://mybar.onrender.com)
 
 ### Screenshots
  

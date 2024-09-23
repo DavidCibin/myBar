@@ -182,9 +182,35 @@ input, select, textarea{
     text-transform: capitalize;
 }
 .review-in {
-    font-size: 20px;
+    font-size: 16px;
     padding: 10px;
-    text-align: center;
+}
+.review-in > select{
+    padding: 2px 5px;
+    margin-right: 5px;
+}
+.review-in > form{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+.no-wrap {
+    white-space: nowrap;
+}
+.review-btn {
+    height: 30px;
+    font-size: 16px;
+    margin: 0;
+}
+.review-login {
+    padding: 10px 0 0 35px;
+}
+.review-login a {
+    text-decoration: none;
+    color: #c8fac4;
+    text-shadow: 0 0 8px #0ffc0f;
 }
 .review-out {
     font-size: 20px;
@@ -822,6 +848,12 @@ body {
     transform: translateY(1)
   }
 
+
+  @media (max-width: 897px) {
+    .review-in > form{
+        justify-content: start;
+    }
+  }
 
   @media (max-width: 500px) {
     

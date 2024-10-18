@@ -51,18 +51,21 @@
                     </div>
                     <div class="rev-content"> 
                         <span class="stars">
-                        <% if (review.rating === 1) { %>
-                            ⭐
-                        <% } else if (review.rating === 2) { %>
-                            ⭐⭐
-                        <% } else if (review.rating === 3) { %>
-                            ⭐⭐⭐
-                        <% } else if (review.rating === 4) { %>
-                            ⭐⭐⭐⭐
-                        <% } else { %>
-                            ⭐⭐⭐⭐⭐
-                        <% } %></span>
-                        <span class="content-text">"<%= review.content %>"</span>
+                            <% if (review.rating === 1) { %>
+                                ⭐
+                            <% } else if (review.rating === 2) { %>
+                                ⭐⭐
+                            <% } else if (review.rating === 3) { %>
+                                ⭐⭐⭐
+                            <% } else if (review.rating === 4) { %>
+                                ⭐⭐⭐⭐
+                            <% } else { %>
+                                ⭐⭐⭐⭐⭐
+                            <% } %>
+                        </span>
+                        <span class="content-text">"
+                            <%= review.content %>"
+                        </span>
                         <%= review.createdAt.toLocaleString().split(',')[0] %>
                     </div>
                 </div>

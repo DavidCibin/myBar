@@ -46,7 +46,6 @@
 </head>
 
 <body>
-
   <nav class="nav">
     <div class="container">
       <div class="logo">
@@ -56,28 +55,23 @@
         <ul class="navlinks">
           <li><a href="/drinks">allDrinks</a></li>
           <li><a href="/users/mybooze">myBooze</a></li>
-
           <li>
             <% if (user) { %>
               <a href="/auth/logout">logOut</a>
-              <% } else { %>
-                <a href="/auth/google">logIn</a>
-                <% } %>
+            <% } else { %>
+              <a href="/auth/google">logIn</a>
+            <% } %>
           </li>
-
           <form action="/drinks/search" method="POST">
             <div class="container h-100">
               <div class="d-flex justify-content-center h-100">
-
                 <div class="searchbar">
                   <input class="search_input" type="text" required minlength="3" name="search" placeholder="Search...">
                   <button type="submit" class="search_icon"><i class="fas fa-search"></i></button>
                 </div>
-
               </div>
             </div>
           </form>
-
         </ul>
       </div>
       <span class="navTrigger">

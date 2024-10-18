@@ -40,7 +40,7 @@ function addToMyBooze(req, res) {
     User.findById(req.user._id, function (err, user) {
         user.drinks.push(req.params.drinkId)
         user.save(function (err) {
-            if (err) console.log(err);
+            if (err) console.error(err);
             res.redirect(`/drinks/${req.params.drinkId}`)
         })
     })
